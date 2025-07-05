@@ -7,7 +7,7 @@
     padding: 80px 0;
   }
   .ingredients--container{
-    max-width: 1320px;
+    max-width: 1340px;
     padding: 0 20px;
     margin: auto;
   }  
@@ -46,6 +46,7 @@
 
   .ingredients--item-content{
     padding: 30px;
+    padding-bottom: 0;
   }
   .ingredients--name {
     margin: 0;
@@ -72,7 +73,28 @@
     display: block;
   }
 
+@media (max-width: 1000px){
+  .ingredients--item-content {
+    padding: 20px;
+    padding-bottom: 0;
+  }
+}
+@media (max-width: 768px){
+  .ingredients--item-content {
+    padding: 20px;
+    padding-bottom: 0;
+  }
+  .ingredients--items {
+    flex-direction: column;
+  }
+  .ingredients--image img {   
+    max-width: 350px;
+    margin-left: auto;
+  }
 
+
+
+}
 
 
 

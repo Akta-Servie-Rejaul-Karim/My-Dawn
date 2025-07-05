@@ -31,9 +31,19 @@
 
   .ingredients--item-single {
     border-radius: 10px;
-    background: #FFF;  
-    overflow: hidden;  
+    background: #FFF;
+    overflow: hidden;
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
+  @media (min-width: 768px) {
+    .ingredients--item-single  {
+      flex: 1 1 0;
+    }
+  }
+
   .ingredients--item-content{
     padding: 30px;
   }
@@ -61,6 +71,8 @@
     width: 100%;
     display: block;
   }
+
+
 
 
 

@@ -149,16 +149,7 @@
   {
     "name": "t:settings_schema.layout.name",
     "settings": [
-      {
-        "type": "range",
-        "id": "page_width",
-        "min": 1000,
-        "max": 1600,
-        "step": 100,
-        "default": 1200,
-        "unit": "px",
-        "label": "t:settings_schema.layout.settings.page_width.label"
-      },
+      
       {
         "type": "range",
         "id": "spacing_sections",
@@ -1242,16 +1233,7 @@
         "default": "bottom left",
         "label": "t:settings_schema.badges.settings.position.label"
       },
-      {
-        "type": "range",
-        "id": "badge_corner_radius",
-        "min": 0,
-        "max": 40,
-        "step": 2,
-        "unit": "px",
-        "label": "t:settings_schema.global.settings.corner_radius.label",
-        "default": 40
-      },
+      
       {
         "type": "color_scheme",
         "id": "sale_badge_color_scheme",

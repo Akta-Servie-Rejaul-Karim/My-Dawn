@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('https://cdn.shopify.com/s/files/1/0588/2288/5564/files/HelveticaNeue-Medium.woff2?v=1751727838') format('woff2'),
+        url('https://cdn.shopify.com/s/files/1/0588/2288/5564/files/HelveticaNeue-Medium.woff?v=1751727838') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('https://cdn.shopify.com/s/files/1/0588/2288/5564/files/HelveticaNeue-Light.woff2?v=1751727838') format('woff2'),
+        url('https://cdn.shopify.com/s/files/1/0588/2288/5564/files/HelveticaNeue-Light.woff?v=1751727838') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('https://cdn.shopify.com/s/files/1/0588/2288/5564/files/HelveticaNeue-Bold.woff2?v=1751727838') format('woff2'),
+        url('https://cdn.shopify.com/s/files/1/0588/2288/5564/files/HelveticaNeue-Bold.woff?v=1751727838') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('https://cdn.shopify.com/s/files/1/0588/2288/5564/files/HelveticaNeue-Roman.woff2?v=1751727838') format('woff2'),
+        url('https://cdn.shopify.com/s/files/1/0588/2288/5564/files/HelveticaNeue-Roman.woff?v=1751727838') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('https://cdn.shopify.com/s/files/1/0588/2288/5564/files/HelveticaNeue-Thin.woff2?v=1751727838') format('woff2'),
+        url('https://cdn.shopify.com/s/files/1/0588/2288/5564/files/HelveticaNeue-Thin.woff?v=1751727838') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+

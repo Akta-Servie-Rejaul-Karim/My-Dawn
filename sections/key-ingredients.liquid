@@ -1,11 +1,82 @@
+
+<link rel="stylesheet" href="{{ 'HelveticaNeue-font' | asset_url }}">
+
+<style>
+  .ingredients--area{
+    background: #F0ECE8;
+    padding: 80px 0;
+  }
+  .ingredients--container{
+    max-width: 1320px;
+    padding: 0 20px;
+    margin: auto;
+  }  
+  .ingredients-title {
+    margin: 0;
+    color: #000;    
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    text-transform: capitalize;
+    margin-bottom: 40px;
+  }
+  
+
+  .ingredients--items {
+    display: flex;
+    gap: 20px;
+  }
+
+  .ingredients--item-single {
+    border-radius: 10px;
+    background: #FFF;  
+    overflow: hidden;  
+  }
+  .ingredients--item-content{
+    padding: 30px;
+  }
+  .ingredients--name {
+    margin: 0;
+    color: #000;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-bottom: 10px;
+  }
+
+  .ingredients--details {
+    margin: 0;
+    color: rgba(0, 0, 0, 0.70);
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+  }
+  .ingredients--image img {
+    width: 100%;
+    display: block;
+  }
+
+
+
+
+</style>
+
 <div class="ingredients--area">
   <div class="ingredients--container">
     <h2 class="ingredients-title">{{ section.settings.title }}</h2>
     <div class="ingredients--items">
       {% for block in section.blocks %}
         <div class="ingredients--item-single">
-          <h3 class="ingredients--name">{{ block.settings.item_name }}</h3>
-          <p class="ingredients--details">{{ block.settings.details }}</p>
+          <div class="ingredients--item-content">
+            <h3 class="ingredients--name">{{ block.settings.item_name }}</h3>
+            <p class="ingredients--details">{{ block.settings.details }}</p>
+          </div>
           <div class="ingredients--image">
             {% if block.settings.image != blank %}
              <img src="{{ block.settings.image |  img_url: 'master' }}" width="" height="" alt="image">

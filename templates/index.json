@@ -55,8 +55,8 @@
         "ingredient_7xT9bn": {
           "type": "ingredient",
           "settings": {
-            "item_name": "Ingredient Name",
-            "details": "Describe the ingredient here.",
+            "item_name": "Goat Whey",
+            "details": "Rich in high-quality protein and essential amino acids for muscle growth and recovery.",
             "image": "shopify://shop_images/pile-flour-isolated-white-background-top-view_1.png"
           }
         },

@@ -124,6 +124,12 @@
     "show_cart_note": true,
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
+    "products": [
+      "brush",
+      "brush-gift",
+      "kids-brush-green",
+      "kids-brush-pink"
+    ],
     "page_width": 1200,
     "badge_corner_radius": 40,
     "sections": {

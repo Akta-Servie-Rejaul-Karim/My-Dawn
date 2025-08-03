@@ -17,10 +17,6 @@ class CartUpsellSlider extends HTMLElement {
           nextEl: this.querySelector(".swiper-button-next"),
           prevEl: this.querySelector(".swiper-button-prev"),
         },
-        breakpoints: {
-          768: { slidesPerView: 3 },
-          1024: { slidesPerView: 4 },
-        },
       });
 
       this.sliderInitialized = true;
@@ -44,7 +40,6 @@ class CartUpsellSlider extends HTMLElement {
         })
           .then((res) => res.json())
           .then(() => {
-            // Optional: re-fetch cart drawer section
             return fetch("/?sections=cart-drawer");
           })
           .then((res) => res.json())
@@ -57,7 +52,7 @@ class CartUpsellSlider extends HTMLElement {
             const oldDrawer = document.querySelector("#CartDrawer");
             if (newDrawer && oldDrawer) {
               oldDrawer.innerHTML = newDrawer.innerHTML;
-              window.initCartUpsellSlider?.(); // re-init slider if needed
+              window.initCartUpsellSlider?.();
             }
           })
           .catch(console.error)

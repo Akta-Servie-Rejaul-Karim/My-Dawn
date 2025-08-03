@@ -1,0 +1,86 @@
+cart-upsell-slider {
+  display: block;
+  margin: 0 0 16px;
+  position: relative;
+  padding: 0 10px;
+}
+
+cart-upsell-slider .upsell--product-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 1rem;
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+cart-upsell-slider .upsell--product-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+cart-upsell-slider .upsell--product-card img {
+  width: 90px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  display: block;
+}
+
+cart-upsell-slider .upsell--product-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+cart-upsell-slider .upsell-add-to-cart {
+  padding: 0.5rem 0.75rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+cart-upsell-slider .upsell-add-to-cart:hover:not(:disabled) {
+  background-color: #333;
+}
+
+cart-upsell-slider .upsell-add-to-cart:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+cart-upsell-slider .swiper-button-prev,
+cart-upsell-slider .swiper-button-next {
+  color: #000;
+  top: 45%;
+  top: 55%;
+  left: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: #ddd;
+  border-radius: 50%;
+  z-index: 999;
+}
+cart-upsell-slider .swiper-button-next {
+  left: auto;
+  right: -5px;
+}
+cart-upsell-slider .swiper-button-prev::after,
+cart-upsell-slider .swiper-button-next::after {
+  font-size: 16px;
+}
+
+cart-upsell-slider .upsell--product-card-content {
+  flex: 1;
+}

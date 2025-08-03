@@ -1,16 +1,21 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+{{ 'upsell-drawer.css' | asset_url | stylesheet_tag }}
+
 {% assign product_list = settings.products %}
 
 <cart-upsell-slider>
-  <div class="swiper upsell-product-swiper">
+  <div class="swiper upsell--product-swiper">
     <div class="swiper-wrapper">
       {% for product in product_list %}
         <div class="swiper-slide">
-          <div class="product-card">
+          <div class="upsell--product-card">
             <a href="{{ product.url }}">
-              <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
-              <p>{{ product.title }}</p>
-              <p>{{ product.price | money }}</p>
+              <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">             
             </a>
+            <div class="upsell--product-card-content">
+               <p>{{ product.title }}</p>
+              <p>{{ product.price | money }}</p>
+            </div>
             <button 
               type="button"
               class="upsell-add-to-cart"
@@ -21,13 +26,13 @@
           </div>
         </div>
       {% endfor %}
-    </div>
-
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    </div>   
   </div>
+   <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
 </cart-upsell-slider>
 
 
 
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="{{ 'upsell-drawer.js' | asset_url }}"></script>

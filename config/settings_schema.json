@@ -149,7 +149,6 @@
   {
     "name": "t:settings_schema.layout.name",
     "settings": [
-      
       {
         "type": "range",
         "id": "spacing_sections",
@@ -1233,7 +1232,7 @@
         "default": "bottom left",
         "label": "t:settings_schema.badges.settings.position.label"
       },
-      
+
       {
         "type": "color_scheme",
         "id": "sale_badge_color_scheme",
@@ -1431,6 +1430,11 @@
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "scheme-1"
+      },
+      {
+        "type": "product_list",
+        "id": "products",
+        "label": "Upsell Product List"
       }
     ]
   }

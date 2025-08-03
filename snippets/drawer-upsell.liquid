@@ -1,0 +1,33 @@
+{% assign product_list = settings.products %}
+
+<cart-upsell-slider>
+  <div class="swiper upsell-product-swiper">
+    <div class="swiper-wrapper">
+      {% for product in product_list %}
+        <div class="swiper-slide">
+          <div class="product-card">
+            <a href="{{ product.url }}">
+              <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
+              <p>{{ product.title }}</p>
+              <p>{{ product.price | money }}</p>
+            </a>
+            <button 
+              type="button"
+              class="upsell-add-to-cart"
+              data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+            >
+              Add to cart
+            </button>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</cart-upsell-slider>
+
+
+
+<script src="{{ 'upsell-drawer.js' | asset_url }}"></script>

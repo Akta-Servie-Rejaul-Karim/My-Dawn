@@ -455,6 +455,13 @@
         </form>
       </cart-drawer-items>
       <div class="drawer__footer">
+
+
+      {% render 'drawer-upsell', cart: cart %}
+
+
+
+
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
             <summary>

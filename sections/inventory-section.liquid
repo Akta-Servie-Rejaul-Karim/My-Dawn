@@ -1,0 +1,96 @@
+{% schema %}
+{
+  "name": "Inventory Table",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "product_row",
+      "name": "Product Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product Name"
+        },
+        {
+          "type": "number",
+          "id": "quantity",
+          "label": "Quantity",
+          "default": 1
+        },
+        {
+          "type": "number",
+          "id": "buy_price",
+          "label": "Buy Price",
+          "default": 0
+        },
+        {
+          "type": "number",
+          "id": "sale_price",
+          "label": "Sale Price",
+          "default": 0
+        }
+      ]
+    }
+  ],
+  
+  "presets": [
+    {
+      "name": "Inventory Table"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="inventory-table-wrapper">
+  <table class="inventory-table" style="width:100%; border-collapse: collapse;">
+    <thead>
+      <tr style="background:#f0f0f0;">
+        <th style="border:1px solid #ccc; padding:8px;">Product Name</th>
+        <th style="border:1px solid #ccc; padding:8px;">Quantity</th>
+        <th style="border:1px solid #ccc; padding:8px;">Buy Price</th>
+        <th style="border:1px solid #ccc; padding:8px;">Sale Price</th>
+        <th style="border:1px solid #ccc; padding:8px;">Total Price</th>
+      </tr>
+    </thead>
+    <tbody id="inventory-table-body">
+      {% for block in section.blocks %}
+        {% assign name = block.settings.product_name %}
+        {% assign qty = block.settings.quantity %}
+        {% assign buy = block.settings.buy_price %}
+        {% assign sale = block.settings.sale_price %}
+        <tr data-block-id="{{ block.id }}">
+          <td style="border:1px solid #ccc; padding:8px;">{{ name }}</td>
+          <td style="border:1px solid #ccc; padding:8px;" class="qty">{{ qty }}</td>
+          <td style="border:1px solid #ccc; padding:8px;" class="buy">{{ buy }}</td>
+          <td style="border:1px solid #ccc; padding:8px;">{{ sale }}</td>
+          <td style="border:1px solid #ccc; padding:8px;" class="total-price">0</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr style="font-weight: bold; background:#e0e0e0;">
+        <td colspan="4" style="border:1px solid #ccc; padding:8px;">Final Total</td>
+        <td id="final-total" style="border:1px solid #ccc; padding:8px;">0</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const rows = document.querySelectorAll('#inventory-table-body tr');
+    let finalTotal = 0;
+
+    rows.forEach(row => {
+      const qty = parseFloat(row.querySelector('.qty')?.textContent || 0);
+      const buy = parseFloat(row.querySelector('.buy')?.textContent || 0);
+      const total = qty * buy;
+
+      row.querySelector('.total-price').textContent = total.toFixed(2);
+      finalTotal += total;
+    });
+
+    document.getElementById('final-total').textContent = finalTotal.toFixed(2);
+  });
+</script>

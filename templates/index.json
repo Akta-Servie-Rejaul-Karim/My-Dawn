@@ -123,11 +123,31 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "inventory_section_zf9r7C": {
+      "type": "inventory-section",
+      "blocks": {
+        "product_row_p8JQt9": {
+          "type": "product_row",
+          "settings": {
+            "product_name": "pipe",
+            "quantity": 10,
+            "buy_price": 100,
+            "sale_price": 120
+          }
+        }
+      },
+      "block_order": [
+        "product_row_p8JQt9"
+      ],
+      "name": "Inventory Table",
+      "settings": {}
     }
   },
   "order": [
     "image_banner",
     "key_ingredients_iVfBdf",
-    "featured_collection_qq8TWU"
+    "featured_collection_qq8TWU",
+    "inventory_section_zf9r7C"
   ]
 }

@@ -31,6 +31,7 @@ class CartUpsellSlider extends HTMLElement {
         if (!variantId) return;
 
         button.disabled = true;
+        const originalText = button.textContent;
         button.textContent = "Adding...";
 
         fetch("/cart/add.js", {
@@ -38,27 +39,38 @@ class CartUpsellSlider extends HTMLElement {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ id: variantId, quantity: 1 }),
         })
-          .then((res) => res.json())
+          .then((res) => {
+            if (!res.ok) throw new Error("Failed to add to cart");
+            return res.json();
+          })
           .then(() => {
-            return fetch("/?sections=cart-drawer");
+            return fetch("/?sections=cart-drawer,cart-icon-bubble");
           })
-          .then((res) => res.json())
+          .then((res) => {
+            if (!res.ok)
+              throw new Error("Failed to fetch updated cart sections");
+            return res.json();
+          })
           .then((data) => {
-            const html = new DOMParser().parseFromString(
-              data["cart-drawer"],
-              "text/html"
-            );
-            const newDrawer = html.querySelector("#CartDrawer");
-            const oldDrawer = document.querySelector("#CartDrawer");
-            if (newDrawer && oldDrawer) {
-              oldDrawer.innerHTML = newDrawer.innerHTML;
-              window.initCartUpsellSlider?.();
+            const cartDrawer = document.querySelector("cart-drawer");
+            if (cartDrawer) {
+              cartDrawer.renderContents({
+                sections: {
+                  "cart-drawer": data["cart-drawer"],
+                  "cart-icon-bubble": data["cart-icon-bubble"],
+                },
+              });
             }
+            // Optionally re-init upsell slider if needed
+            window.initCartUpsellSlider?.();
           })
-          .catch(console.error)
+          .catch((error) => {
+            console.error(error);
+            alert("Sorry, there was a problem adding the item to your cart.");
+          })
           .finally(() => {
             button.disabled = false;
-            button.textContent = "Add to cart";
+            button.textContent = originalText;
           });
       });
     });

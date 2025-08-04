@@ -1,3 +1,89 @@
+
+<style>
+  .inventory-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+
+  .inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+  }
+
+  .inventory-table th,
+  .inventory-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .inventory-table thead {
+    background: #f8f8f8;
+  }
+
+  .inventory-table tfoot {
+    background: #e0e0e0;
+    font-weight: bold;
+  }
+
+  @media (max-width: 600px) {
+    .inventory-table {
+      font-size: 14px;
+    }
+
+    .inventory-table th,
+    .inventory-table td {
+      padding: 8px;
+    }
+
+    .inventory-table-wrapper {
+      overflow-x: scroll;
+    }
+  }
+
+  
+
+
+</style>
+<div class="inventory-table-wrapper">
+  <table class="inventory-table" style="width:100%; border-collapse: collapse;">
+    <thead>
+      <tr style="background:#f0f0f0;">
+        <th style="border:1px solid #ccc; padding:8px;">Product Name</th>
+        <th style="border:1px solid #ccc; padding:8px;">Quantity</th>
+        <th style="border:1px solid #ccc; padding:8px;">Buy Price</th>
+        <th style="border:1px solid #ccc; padding:8px;">Sale Price</th>
+        <th style="border:1px solid #ccc; padding:8px;">Total Price</th>
+      </tr>
+    </thead>
+    <tbody id="inventory-table-body">
+      {% for block in section.blocks %}
+        {% assign name = block.settings.product_name %}
+        {% assign qty = block.settings.quantity %}
+        {% assign buy = block.settings.buy_price %}
+        {% assign sale = block.settings.sale_price %}
+        <tr data-block-id="{{ block.id }}">
+          <td style="border:1px solid #ccc; padding:8px;">{{ name }}</td>
+          <td style="border:1px solid #ccc; padding:8px;" class="qty">{{ qty }}</td>
+          <td style="border:1px solid #ccc; padding:8px;" class="buy">{{ buy }}</td>
+          <td style="border:1px solid #ccc; padding:8px;">{{ sale }}</td>
+          <td style="border:1px solid #ccc; padding:8px;" class="total-price">0</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr style="font-weight: bold; background:#e0e0e0;">
+        <td colspan="4" style="border:1px solid #ccc; padding:8px;">Final Total</td>
+        <td id="final-total" style="border:1px solid #ccc; padding:8px;">0</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+
 {% schema %}
 {
   "name": "Inventory Table",
@@ -42,40 +128,6 @@
 }
 {% endschema %}
 
-<div class="inventory-table-wrapper">
-  <table class="inventory-table" style="width:100%; border-collapse: collapse;">
-    <thead>
-      <tr style="background:#f0f0f0;">
-        <th style="border:1px solid #ccc; padding:8px;">Product Name</th>
-        <th style="border:1px solid #ccc; padding:8px;">Quantity</th>
-        <th style="border:1px solid #ccc; padding:8px;">Buy Price</th>
-        <th style="border:1px solid #ccc; padding:8px;">Sale Price</th>
-        <th style="border:1px solid #ccc; padding:8px;">Total Price</th>
-      </tr>
-    </thead>
-    <tbody id="inventory-table-body">
-      {% for block in section.blocks %}
-        {% assign name = block.settings.product_name %}
-        {% assign qty = block.settings.quantity %}
-        {% assign buy = block.settings.buy_price %}
-        {% assign sale = block.settings.sale_price %}
-        <tr data-block-id="{{ block.id }}">
-          <td style="border:1px solid #ccc; padding:8px;">{{ name }}</td>
-          <td style="border:1px solid #ccc; padding:8px;" class="qty">{{ qty }}</td>
-          <td style="border:1px solid #ccc; padding:8px;" class="buy">{{ buy }}</td>
-          <td style="border:1px solid #ccc; padding:8px;">{{ sale }}</td>
-          <td style="border:1px solid #ccc; padding:8px;" class="total-price">0</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-    <tfoot>
-      <tr style="font-weight: bold; background:#e0e0e0;">
-        <td colspan="4" style="border:1px solid #ccc; padding:8px;">Final Total</td>
-        <td id="final-total" style="border:1px solid #ccc; padding:8px;">0</td>
-      </tr>
-    </tfoot>
-  </table>
-</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {

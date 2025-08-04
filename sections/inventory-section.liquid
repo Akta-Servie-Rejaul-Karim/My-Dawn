@@ -62,7 +62,7 @@
         {% assign qty = block.settings.quantity %}
         {% assign buy = block.settings.buy_price %}
         {% assign sale = block.settings.sale_price %}
-        <tr data-block-id="{{ block.id }}">
+        <tr data-block-id="{{ block.id }}" {{ block.shopify_attributes }}>
           <td style="border:1px solid #ccc; padding:8px;">{{ name }}</td>
           <td style="border:1px solid #ccc; padding:8px;" class="qty">{{ qty }}</td>
           <td style="border:1px solid #ccc; padding:8px;" class="buy">{{ buy }}</td>

@@ -69,11 +69,61 @@
             "buy_price": 5,
             "sale_price": 10
           }
+        },
+        "product_row_NUFHVF": {
+          "type": "product_row",
+          "settings": {
+            "product_name": "pencil",
+            "quantity": 30,
+            "buy_price": 5,
+            "sale_price": 10
+          }
+        },
+        "product_row_7MVzge": {
+          "type": "product_row",
+          "settings": {
+            "product_name": "pencil",
+            "quantity": 30,
+            "buy_price": 5,
+            "sale_price": 10
+          }
+        },
+        "product_row_wRUxxb": {
+          "type": "product_row",
+          "settings": {
+            "product_name": "pencil",
+            "quantity": 30,
+            "buy_price": 5,
+            "sale_price": 10
+          }
+        },
+        "product_row_aXaYrU": {
+          "type": "product_row",
+          "settings": {
+            "product_name": "pencil",
+            "quantity": 30,
+            "buy_price": 5,
+            "sale_price": 10
+          }
+        },
+        "product_row_L4xxHR": {
+          "type": "product_row",
+          "settings": {
+            "product_name": "pencil",
+            "quantity": 30,
+            "buy_price": 5,
+            "sale_price": 10
+          }
         }
       },
       "block_order": [
         "product_row_p8JQt9",
-        "product_row_fW63T4"
+        "product_row_fW63T4",
+        "product_row_NUFHVF",
+        "product_row_7MVzge",
+        "product_row_wRUxxb",
+        "product_row_aXaYrU",
+        "product_row_L4xxHR"
       ],
       "name": "Inventory Table",
       "settings": {}

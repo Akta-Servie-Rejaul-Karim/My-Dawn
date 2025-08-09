@@ -125,6 +125,7 @@
         "product_row_aXaYrU",
         "product_row_L4xxHR"
       ],
+      "disabled": true,
       "name": "Inventory Table",
       "settings": {}
     },

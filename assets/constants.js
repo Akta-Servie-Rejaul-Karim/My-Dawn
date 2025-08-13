@@ -7,3 +7,8 @@ const PUB_SUB_EVENTS = {
   variantChange: 'variant-change',
   cartError: 'cart-error',
 };
+
+
+ pubsub.subscribe(PUB_SUB_EVENTS.cartUpdate, (eventData) => {
+      console.log('Cart updated test', eventData.cart);
+    });

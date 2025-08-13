@@ -514,11 +514,3 @@
   ]
 }
 {% endschema %}
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    pubsub.subscribe(PUB_SUB_EVENTS.cartUpdate, (eventData) => {
-      console.log('Cart updated test', eventData.cart);
-    });
-  });
-</script>

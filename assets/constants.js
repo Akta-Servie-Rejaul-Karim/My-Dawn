@@ -9,6 +9,3 @@ const PUB_SUB_EVENTS = {
 };
 
 
- pubsub.subscribe(PUB_SUB_EVENTS.cartUpdate, (eventData) => {
-      console.log('Cart updated test', eventData.cart);
-    });

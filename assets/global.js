@@ -84,6 +84,9 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
   summary.parentElement.addEventListener('keyup', onKeyUpEscape);
 });
 
+
+
+
 const trapFocusHandlers = {};
 
 function trapFocus(container, elementToFocus = container) {

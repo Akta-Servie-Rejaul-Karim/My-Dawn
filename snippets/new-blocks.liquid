@@ -88,6 +88,27 @@
         <div class="swiper-pagination"></div>
       </div>
     </div>
+
+  {% when 'accordion_item' %}
+    <my-accordion single>
+      *
+      <div class="accordion-item">
+        *
+        <div class="accordion-header">Title 1</div>
+        *
+        <div class="accordion-content">Content 1</div>
+        *
+      </div>
+      *
+      <div class="accordion-item">
+        *
+        <div class="accordion-header">Title 2</div>
+        *
+        <div class="accordion-content">Content 2</div>
+        *
+      </div>
+      *
+    </my-accordion>
 {% endcase %}
 
 <script>

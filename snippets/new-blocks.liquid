@@ -1,5 +1,11 @@
 {%- case block.type -%}
   {%- when 'short_des' -%}
+    <div class="review-blocks">
+      {% assign rating = block.settings.start %}
+      {% for i in (1..rating) %}
+      {% endfor %}
+    </div>
+  {%- when 'short_des' -%}
     <p class="short-des" {{ block.shopify_attributes }}>{{ block.settings.short_des }}</p>
   {%- when 'benifits_list' -%}
     <div class="benifits-list">

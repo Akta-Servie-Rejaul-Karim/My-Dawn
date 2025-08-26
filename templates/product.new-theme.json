@@ -125,12 +125,6 @@
             "border_bottom": true,
             "open_by_default": false
           }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
         }
       },
       "block_order": [
@@ -146,8 +140,7 @@
         "my_accordion_Q6UPpb",
         "my_accordion_FFDBTD",
         "my_accordion_RaXVig",
-        "my_accordion_Q8FzGV",
-        "share"
+        "my_accordion_Q8FzGV"
       ],
       "settings": {
         "enable_sticky_info": true,

@@ -1,0 +1,31 @@
+<div class="testimonial-slider" {{ block.shopify_attributes }}>
+  <h3 class="testimonial-title">{{ block.settings.section_title }}</h3>
+  <div class="swiper testimonial-swiper">
+    <div class="swiper-wrapper">
+      {% for i in (1..10) %}
+        {% assign video_key = 'video_' | append: i %}
+        {% assign text_key = 'text_' | append: i %}
+
+        {% if block.settings[video_key] != blank %}
+          <div class="swiper-slide testimonial-slide">
+            <div class="testimonial-video">
+              {{
+                block.settings.settings[video_key]
+                | video_tag: autoplay: false, loop: true, muted: false, controls: true, image_size: '1200x'
+              }}
+              <button class="video-play-btn">►</button>
+            </div>
+            {% if block.settings[text_key] != blank %}
+              <p class="testimonial-text">{{ block.settings[text_key] }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- Swiper Navigation -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>

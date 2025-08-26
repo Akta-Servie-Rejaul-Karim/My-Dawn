@@ -151,13 +151,10 @@ my-accordion .accordion-header > * {
 .accordion-item.active span.icon-plus {
   display: none;
 }
-/* Active header highlight */
-my-accordion .accordion-item.active .accordion-header {
-  /* background: #e0e0e0; */
-}
+
 
 my-accordion .accordion-content {
- color: #000;
+color: #000;
 font-family: Montserrat;
 font-size: 16px;
 font-style: normal;

@@ -83,22 +83,5 @@
         1024: { slidesPerView: 3 },
       },
     });
-
-    const videoWrappers = document.querySelectorAll('.testimonial-video');
-
-    videoWrappers.forEach((wrapper) => {
-      const video = wrapper.querySelector('video');
-      const playBtn = wrapper.querySelector('.video-play-btn');
-
-      wrapper.addEventListener('click', function () {
-        if (video.paused) {
-          video.play();
-          playBtn.style.display = 'none';
-        } else {
-          video.pause();
-          playBtn.style.display = 'flex';
-        }
-      });
-    });
   });
 </script>

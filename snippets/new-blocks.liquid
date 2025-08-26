@@ -36,15 +36,23 @@
     </div>
 
   {%- when 'icon_text' -%}
-    <div class="icon-text-block">
-      {% if block.settings.icon != blank %}
-        <img src="{{ block.settings.icon | img_url: '50x50' }}" alt="icon" class="icon-text-icon">
-      {% endif %}
-      {% if block.settings.title != blank %}
-        <h4 class="icon-text-title">{{ block.settings.title }}</h4>
-      {% endif %}
-      {% if block.settings.subtitle != blank %}
-        <p class="icon-text-subtitle">{{ block.settings.subtitle }}</p>
-      {% endif %}
+    <div class="icon-row">
+      {% for i in (1..3) %}
+        {% assign icon_key = 'icon_' | append: i %}
+        {% assign title_key = 'title_' | append: i %}
+
+        {% if block.settings[title_key] != blank %}
+          <div class="icon-item">
+            {% if block.settings[icon_key] != blank %}
+              <img
+                src="{{ block.settings[icon_key] | img_url: '50x50' }}"
+                alt="{{ block.settings[title_key] }}"
+                class="icon-img"
+              >
+            {% endif %}
+            <p class="icon-title">{{ block.settings[title_key] }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
     </div>
 {% endcase %}

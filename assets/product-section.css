@@ -106,15 +106,6 @@ p.icon-title {
     letter-spacing: -0.48px;
 }
 
-.accordion-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-span.minus {
-    display: none;
-}
 
 
 my-accordion .accordion-item + .accordion-item {
@@ -133,13 +124,14 @@ my-accordion .accordion-header {
 }
 
 my-accordion .accordion-header h3 {
-  font-family: "Rubik", sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  margin: 0;
-  color: #000;
+    margin: 0;
+    color: #000;
+    font-family: "Montserrat", sans-serif;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: -0.63px;
 }
 
 my-accordion .accordion-header > * {

@@ -91,6 +91,7 @@ h3.benifits-list-title {
     width: 35px;
     height: 35px;
     aspect-ratio: 1 / 1;
+    margin-bottom: 8px;
 }
 
 p.icon-title {

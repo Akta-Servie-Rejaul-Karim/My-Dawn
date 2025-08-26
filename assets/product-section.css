@@ -171,3 +171,8 @@ letter-spacing: -0.48px;
 .testimonial-video video {
     width: 100%;
 }
+
+.testimonial-video {
+    border-radius: 15px;
+    overflow: hidden;
+}

@@ -96,6 +96,16 @@
             "open_by_default": false
           }
         },
+        "my_accordion_FFDBTD": {
+          "type": "my_accordion",
+          "settings": {
+            "accordion_title": "How to Use",
+            "accordion_details": "",
+            "border_top": false,
+            "border_bottom": true,
+            "open_by_default": false
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -114,6 +124,7 @@
         "buy_buttons",
         "icon_text_eiTTH8",
         "my_accordion_Q6UPpb",
+        "my_accordion_FFDBTD",
         "share"
       ],
       "settings": {

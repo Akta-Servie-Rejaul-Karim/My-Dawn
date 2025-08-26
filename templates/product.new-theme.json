@@ -106,6 +106,26 @@
             "open_by_default": false
           }
         },
+        "my_accordion_RaXVig": {
+          "type": "my_accordion",
+          "settings": {
+            "accordion_title": "Shipping & Returns",
+            "accordion_details": "",
+            "border_top": false,
+            "border_bottom": true,
+            "open_by_default": false
+          }
+        },
+        "my_accordion_Q8FzGV": {
+          "type": "my_accordion",
+          "settings": {
+            "accordion_title": "Money Back Guarantee",
+            "accordion_details": "",
+            "border_top": false,
+            "border_bottom": true,
+            "open_by_default": false
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -125,6 +145,8 @@
         "icon_text_eiTTH8",
         "my_accordion_Q6UPpb",
         "my_accordion_FFDBTD",
+        "my_accordion_RaXVig",
+        "my_accordion_Q8FzGV",
         "share"
       ],
       "settings": {

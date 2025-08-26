@@ -106,4 +106,8 @@ p.icon-title {
     letter-spacing: -0.48px;
 }
 
-font-family: "Test Söhne", sans-serif;
+.accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

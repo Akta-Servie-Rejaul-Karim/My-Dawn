@@ -740,6 +740,27 @@
     {
       "type": "@app"
     },
+    {
+      "type": "review_count",
+      "name": "Review Block",
+      "settings": [
+        {
+          "type": "range",
+          "id": "start",
+          "label": "Star rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Review text",
+          "default": "This is a short review text."
+        }
+      ]
+    },
 
     {
       "type": "benifits_list",
@@ -813,7 +834,6 @@
         }
       ]
     },
-
 
     {
       "type": "text",

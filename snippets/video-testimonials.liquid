@@ -9,18 +9,19 @@
         {% assign text_key = 'text_' | append: i %}
 
         {% if block.settings[video_key] != blank %}
-          <div class="swiper-slide testimonial-slide">
-            <div class="testimonial-video">
-              {{
-                block.settings[video_key]
-                | video_tag: autoplay: false, loop: true, muted: false, controls: true, image_size: '1200x'
-              }}
-              <button class="video-play-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M3.20575 0.270704C1.76391 -0.521984 0 0.52117 0 2.16654V24.92C0 26.6138 1.85795 27.6505 3.29934 26.7613L22.8025 14.7302C24.213 13.8599 24.1613 11.7916 22.7088 10.9931L3.20575 0.270704Z" fill="#F2F2F1"/>
-                </svg>
-              </button>
-
+          <div class="swiper-slide ">
+            <div class="testimonial-slide">
+              <div class="testimonial-video">
+                {{
+                  block.settings[video_key]
+                  | video_tag: autoplay: false, loop: true, muted: false, controls: true, image_size: '1200x'
+                }}
+                <button class="video-play-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.20575 0.270704C1.76391 -0.521984 0 0.52117 0 2.16654V24.92C0 26.6138 1.85795 27.6505 3.29934 26.7613L22.8025 14.7302C24.213 13.8599 24.1613 11.7916 22.7088 10.9931L3.20575 0.270704Z" fill="#F2F2F1"/>
+                  </svg>
+                </button>
+              </div>
               {% if block.settings[text_key] != blank %}
                 <p class="testimonial-text">{{ block.settings[text_key] }}</p>
               {% endif %}

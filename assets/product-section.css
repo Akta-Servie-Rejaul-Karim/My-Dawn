@@ -134,7 +134,7 @@ my-accordion .accordion-header h3 {
     letter-spacing: -0.63px;
 }
 
-@media (width < 600){
+@media (width < 600px){
   my-accordion .accordion-header h3 {   
     font-size: 16px;    
     }  

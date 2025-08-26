@@ -9,6 +9,7 @@
           </svg>
         {% endfor %}
       </span>
+      <span class="review-text">{{ block.settings.text }}</span>
     </div>
   {%- when 'short_des' -%}
     <p class="short-des" {{ block.shopify_attributes }}>{{ block.settings.short_des }}</p>

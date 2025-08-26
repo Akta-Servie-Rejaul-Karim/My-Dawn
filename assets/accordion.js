@@ -26,6 +26,10 @@ class MyAccordion extends HTMLElement {
   toggleItem(item, content) {
     const isActive = item.classList.contains("active");
 
+    console.log('clicked')
+
+
+
     if (this.single) {
       // Close all items first
       this.items.forEach((other) => {

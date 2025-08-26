@@ -86,6 +86,15 @@
             "title_3": "Backed by the Promise"
           }
         },
+        "accordion_item_XMmKg6": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Benefits",
+            "content": "<p>Add your accordion content here.</p>",
+            "border_bottom": true,
+            "by_default_open": false
+          }
+        },
         "collapsible_tab_VKJxtg": {
           "type": "collapsible_tab",
           "settings": {
@@ -112,6 +121,7 @@
         "quantity_selector",
         "buy_buttons",
         "icon_text_eiTTH8",
+        "accordion_item_XMmKg6",
         "collapsible_tab_VKJxtg",
         "share"
       ],

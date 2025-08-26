@@ -68,9 +68,10 @@
             {% if block.settings[video_key] != blank %}
               <div class="swiper-slide testimonial-slide">
                 <div class="testimonial-video">
-                  <video controls playsinline preload="metadata">
-                    <source src="{{ block.settings[video_key] }}" type="video/mp4">
-                  </video>
+                  {{
+                    block.settings.settings[video_key]
+                    | video_tag: autoplay: false, loop: true, muted: false, controls: true, image_size: '1200x'
+                  }}
                 </div>
                 {% if block.settings[text_key] != blank %}
                   <p class="testimonial-text">{{ block.settings[text_key] }}</p>

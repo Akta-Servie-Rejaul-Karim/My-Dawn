@@ -111,3 +111,7 @@ p.icon-title {
     align-items: center;
     justify-content: space-between;
 }
+
+span.minus {
+    display: none;
+}

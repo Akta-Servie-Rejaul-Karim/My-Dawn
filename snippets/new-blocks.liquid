@@ -7,8 +7,14 @@
       <ul class="benifits-list-item">
         {% for i in (1..10) %}
           {% assign setting_key = 'list_item_' | append: i %}
+          {% assign setting_key_img = 'list_item_img_' | append: i %}
           {% if block.settings[setting_key] != blank %}
-            <li>{{ block.settings[setting_key] }}</li>
+            <li>
+              {% if block.settings[setting_key_img] != blank %}
+                <img src="{{ block.settings[setting_key_img] | img_url: 'master' }}" alt="icon">
+              {% endif %}
+              <span>{{ block.settings[setting_key] }}</span>
+            </li>
           {% endif %}
         {% endfor %}
       </ul>

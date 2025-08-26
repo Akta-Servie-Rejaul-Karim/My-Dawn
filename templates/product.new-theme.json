@@ -34,9 +34,13 @@
           "settings": {
             "title": "Experience These Powerful Benefits:",
             "list_item_1": "Supports Immune System*",
+            "list_item_img_1": "shopify://shop_images/Group_3.png",
             "list_item_2": "Aids Healthy Inflammatory Pathways",
+            "list_item_img_2": "shopify://shop_images/Group_4.png",
             "list_item_3": "Enhances Heart Health",
+            "list_item_img_3": "shopify://shop_images/Group_8.png",
             "list_item_4": "Boosts Metabolism",
+            "list_item_img_4": "shopify://shop_images/Group_9.png",
             "list_item_5": "Improves Cognitive Function",
             "list_item_6": "Promotes General Wellness",
             "list_item_7": "Increases Energy Production",

@@ -136,7 +136,7 @@ my-accordion .accordion-header h3 {
 
 @media (width < 600px){
   my-accordion .accordion-header h3 {   
-    font-size: 16px;
+    font-size: 18px;
     }  
     my-accordion .accordion-header{
     padding: 12px 0;    

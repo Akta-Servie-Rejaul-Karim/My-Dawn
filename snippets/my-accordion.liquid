@@ -1,0 +1,29 @@
+<style>
+  my-accordion.border{{ block.id }} {
+    {% if block.settings.border_top != false %}
+      border-top: 1px solid rgba(0, 0, 0, 0.10);
+    {% endif %}
+    {% if block.settings.border_bottom != false %}
+      border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+    {% endif %}
+  }
+</style>
+
+<my-accordion class="border{{ block.id }}" {{ block.shopify_attributes }}>
+  <div class="accordion-item {% if  block.settings.open_by_default %}active{% endif %}">
+    <div class="accordion-header">
+      <h3>{{ block.settings.accordion_title }}</h3>
+      <div class="acc-icon">
+        <span class="icon-plus">
+          {% render 'plus' %}
+        </span>
+        <span class="icon-minus">
+          {% render 'minus' %}
+        </span>
+      </div>
+    </div>
+    <div class="accordion-content">
+      {{ block.settings.accordion_details }}
+    </div>
+  </div>
+</my-accordion>

@@ -75,9 +75,16 @@
             "show_gift_card_recipient": true
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
+        "icon_text_eiTTH8": {
+          "type": "icon_text",
+          "settings": {
+            "icon_1": "shopify://shop_images/cbe1f_svg.png",
+            "title_1": "Free Shipping & Returns",
+            "icon_2": "shopify://shop_images/Vector_3.png",
+            "title_2": "Money-Back Guarantee",
+            "icon_3": "shopify://shop_images/image_28.png",
+            "title_3": "Backed by the Promise"
+          }
         },
         "collapsible_tab_VKJxtg": {
           "type": "collapsible_tab",
@@ -104,7 +111,7 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description",
+        "icon_text_eiTTH8",
         "collapsible_tab_VKJxtg",
         "share"
       ],

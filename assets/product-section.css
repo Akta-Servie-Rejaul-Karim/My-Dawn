@@ -170,12 +170,14 @@ letter-spacing: -0.48px;
 
 .testimonial-video video {
     width: 100%;
+    display: block;
 }
 
 .testimonial-video {
     border-radius: 15px;
     overflow: hidden;
     position: relative;
+
 }
 
 .testimonial-text {

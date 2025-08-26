@@ -55,4 +55,35 @@
         {% endif %}
       {% endfor %}
     </div>
+
+  {%- when 'video_testimonials' -%}
+    <div class="testimonial-slider">
+      <h3 class="testimonial-title">{{ block.settings.section_title }}</h3>
+      <div class="swiper testimonial-swiper">
+        <div class="swiper-wrapper">
+          {% for i in (1..10) %}
+            {% assign video_key = 'video_' | append: i %}
+            {% assign text_key = 'text_' | append: i %}
+
+            {% if block.settings[video_key] != blank %}
+              <div class="swiper-slide testimonial-slide">
+                <div class="testimonial-video">
+                  <video controls playsinline preload="metadata">
+                    <source src="{{ block.settings[video_key] }}" type="video/mp4">
+                  </video>
+                </div>
+                {% if block.settings[text_key] != blank %}
+                  <p class="testimonial-text">{{ block.settings[text_key] }}</p>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <!-- Swiper Navigation -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
 {% endcase %}

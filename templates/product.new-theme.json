@@ -91,7 +91,7 @@
           "settings": {
             "title": "Benefits",
             "content": "<p>Add your accordion content here.</p>",
-            "border_bottom": true,
+            "border_bottom": false,
             "by_default_open": false
           }
         },

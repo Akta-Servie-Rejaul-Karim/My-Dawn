@@ -115,3 +115,68 @@ p.icon-title {
 span.minus {
     display: none;
 }
+
+
+my-accordion .accordion-item + .accordion-item {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+my-accordion .accordion-header {
+  padding: 14px 0;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  justify-content: space-between;
+}
+
+my-accordion .accordion-header h3 {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  margin: 0;
+  color: #000;
+}
+
+my-accordion .accordion-header > * {
+  margin: 0;
+}
+.acc-icon span {
+  display: flex;
+  transition: o.3s;
+  align-items: center;
+}
+.acc-icon .icon-minus {
+  display: none;
+}
+.accordion-item.active span.icon-minus {
+  display: flex;
+}
+.accordion-item.active span.icon-plus {
+  display: none;
+}
+/* Active header highlight */
+my-accordion .accordion-item.active .accordion-header {
+  /* background: #e0e0e0; */
+}
+
+my-accordion .accordion-content {
+  padding: 0 14px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: "HvDTrial Americane";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.accordion-content ul {
+  padding: 0 0 0 25px;
+}

@@ -96,15 +96,6 @@
             "open_by_default": false
           }
         },
-        "collapsible_tab_VKJxtg": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "content": "<p>test</p>",
-            "page": ""
-          }
-        },
         "share": {
           "type": "share",
           "settings": {
@@ -123,7 +114,6 @@
         "buy_buttons",
         "icon_text_eiTTH8",
         "my_accordion_Q6UPpb",
-        "collapsible_tab_VKJxtg",
         "share"
       ],
       "settings": {

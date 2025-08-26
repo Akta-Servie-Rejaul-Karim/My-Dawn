@@ -89,17 +89,8 @@
       const video = wrapper.querySelector('video');
       const playBtn = wrapper.querySelector('.video-play-btn');
 
-      // Click anywhere inside wrapper (video OR button)
       wrapper.addEventListener('click', function () {
         if (video.paused) {
-          // Pause all other videos
-          document.querySelectorAll('.testimonial-video video').forEach((v) => {
-            if (v !== video) {
-              v.pause();
-              v.nextElementSibling.style.display = 'flex'; // show play button again
-            }
-          });
-
           video.play();
           playBtn.style.display = 'none';
         } else {

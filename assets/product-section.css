@@ -210,3 +210,9 @@ button.video-play-btn {
     cursor: pointer;
     pointer-events: none;
 }
+
+.testimonial-slider .swiper-slide{
+    padding: 6px;
+    border-radius: 15px;
+border: 1px solid rgba(129, 127, 127, 0.19);
+}

@@ -8,6 +8,8 @@
         {% assign video_key = 'video_' | append: i %}
         {% assign text_key = 'text_' | append: i %}
 
+        {{ video_key }}
+
         {% if block.settings[video_key] != blank %}
           <div class="swiper-slide testimonial-slide">
             {{ block.settings[video_key] }}

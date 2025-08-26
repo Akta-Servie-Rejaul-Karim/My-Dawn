@@ -3,3 +3,9 @@ span.star-count {
     align-items: center;
     gap: 2px;
 }
+
+.review-blocks {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

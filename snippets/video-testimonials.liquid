@@ -10,6 +10,8 @@
 
         {% if block.settings[video_key] != blank %}
           <div class="swiper-slide testimonial-slide">
+            {{ block.settings[video_key] }}
+
             <div class="testimonial-video">
               {{
                 block.settings.settings[video_key]

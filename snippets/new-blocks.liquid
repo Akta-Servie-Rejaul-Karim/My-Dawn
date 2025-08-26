@@ -66,7 +66,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     var testimonialSwiper = new Swiper('.testimonial-swiper', {
-      slidesPerView: 3.5,
+      slidesPerView: 2.5,
       spaceBetween: 10,
       loop: true,
       {% comment %} pagination: {
@@ -77,11 +77,10 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       }, {% endcomment %}
-      {% comment %} breakpoints: {
-        320: { slidesPerView: 1 },
-        640: { slidesPerView: 2 },
+       breakpoints: {
+        500: { slidesPerView: 3.5 },
         1024: { slidesPerView: 3 },
-      }, {% endcomment %}
+      },
     });
   });
 </script>

@@ -29,6 +29,22 @@
             "short_des": "Restore vitality, sharpen mental clarity, and increase endurance with Ancient Himalayan Shilajit resin"
           }
         },
+        "benifits_list_LRwcNg": {
+          "type": "benifits_list",
+          "settings": {
+            "title": "Experience These Powerful Benefits:",
+            "list_item_1": "",
+            "list_item_2": "",
+            "list_item_3": "",
+            "list_item_4": "",
+            "list_item_5": "",
+            "list_item_6": "",
+            "list_item_7": "",
+            "list_item_8": "",
+            "list_item_9": "",
+            "list_item_10": ""
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -75,6 +91,7 @@
         "review_count_KJTdeF",
         "title",
         "short_des_YfNKUY",
+        "benifits_list_LRwcNg",
         "price",
         "variant_picker",
         "quantity_selector",

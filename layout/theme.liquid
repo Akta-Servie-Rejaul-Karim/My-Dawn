@@ -300,7 +300,7 @@
     {% render 'custom-font' %}
     {{ 'product-section.css' | asset_url | stylesheet_tag }}
 
-    <script src="{{ 'accordion.js' | asset_url }}"></script>
+    <script src="{{ 'my-accordion.js' | asset_url }}" defer="defer"></script>
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">

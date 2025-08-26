@@ -23,6 +23,12 @@
           "type": "title",
           "settings": {}
         },
+        "short_des_YfNKUY": {
+          "type": "short_des",
+          "settings": {
+            "short_des": "Restore vitality, sharpen mental clarity, and increase endurance with Ancient Himalayan Shilajit resin"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -68,6 +74,7 @@
       "block_order": [
         "review_count_KJTdeF",
         "title",
+        "short_des_YfNKUY",
         "price",
         "variant_picker",
         "quantity_selector",

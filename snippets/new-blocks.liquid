@@ -3,6 +3,9 @@
     <div class="review-blocks">
       {% assign rating = block.settings.start %}
       {% for i in (1..rating) %}
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 0L11.1246 6.87539H18L12.4377 11.1246L14.5623 18L9 13.7508L3.43769 18L5.56231 11.1246L0 6.87539H6.87539L9 0Z" fill="black"/>
+        </svg>
       {% endfor %}
     </div>
   {%- when 'short_des' -%}

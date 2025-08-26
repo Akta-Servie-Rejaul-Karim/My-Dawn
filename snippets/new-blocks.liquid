@@ -111,5 +111,27 @@
         1280: { slidesPerView: 4 },
       },
     });
+    const playButtons = document.querySelectorAll('.video-play-btn');
+
+    playButtons.forEach((btn) => {
+      btn.addEventListener('click', function () {
+        const video = this.previousElementSibling; // the video element
+        if (video.paused) {
+          video.play();
+          this.style.display = 'none'; // hide play button when playing
+        } else {
+          video.pause();
+          this.style.display = 'flex';
+        }
+
+        // Pause other videos when a new one plays
+        document.querySelectorAll('.testimonial-video-wrapper video').forEach((v) => {
+          if (v !== video) {
+            v.pause();
+            v.nextElementSibling.style.display = 'flex'; // show play button
+          }
+        });
+      });
+    });
   });
 </script>

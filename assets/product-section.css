@@ -173,10 +173,14 @@ letter-spacing: -0.48px;
     display: block;
 }
 
-.testimonial-video {
-    border-radius: 15px;
+.testimonial-slide{
+     border-radius: 15px;
     overflow: hidden;
     position: relative;
+}
+
+.testimonial-video {
+   
 
 }
 

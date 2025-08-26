@@ -9,3 +9,13 @@ span.star-count {
     align-items: center;
     gap: 10px;
 }
+
+.review-blocks .review-text {
+    color: #002A46;
+    font-family: "Neue Haas Grotesk Display Pro";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    letter-spacing: 0.64px;
+}

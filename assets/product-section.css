@@ -157,16 +157,7 @@ my-accordion .accordion-item.active .accordion-header {
 }
 
 my-accordion .accordion-content {
-  padding: 0 14px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  color: rgba(0, 0, 0, 0.7);
-  font-family: "HvDTrial Americane";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 140%;
+ 
 }
 
 .accordion-content ul {

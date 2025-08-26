@@ -41,3 +41,33 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const videoWrappers = document.querySelectorAll('.testimonial-video');
+
+    videoWrappers.forEach((wrapper) => {
+      const video = wrapper.querySelector('video');
+      const playBtn = wrapper.querySelector('.video-play-btn');
+
+      // Click anywhere inside wrapper (video OR button)
+      wrapper.addEventListener('click', function () {
+        if (video.paused) {
+          // Pause all other videos
+          document.querySelectorAll('.testimonial-video video').forEach((v) => {
+            if (v !== video) {
+              v.pause();
+              v.nextElementSibling.style.display = 'flex'; // show play button again
+            }
+          });
+
+          video.play();
+          playBtn.style.display = 'none';
+        } else {
+          video.pause();
+          playBtn.style.display = 'flex';
+        }
+      });
+    });
+  });
+</script>

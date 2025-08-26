@@ -9,7 +9,7 @@
           {% assign setting_key = 'list_item_' | append: i %}
         {% endfor %}
 
-        <li>{{ block.settings.list_item }}</li>
+        <li>{{ block.settings[setting_key] }}</li>
       </ul>
     </div>
 {% endcase %}

@@ -86,6 +86,22 @@
             "title_3": "Backed by the Promise"
           }
         },
+        "video_testimonials_QrrbJj": {
+          "type": "video_testimonials",
+          "settings": {
+            "section_title": "What people are saying",
+            "text_1": "This Shilajit increased my stamina overnight",
+            "text_2": "This Shilajit increased my stamina overnight",
+            "text_3": "",
+            "text_4": "",
+            "text_5": "",
+            "text_6": "",
+            "text_7": "",
+            "text_8": "",
+            "text_9": "",
+            "text_10": ""
+          }
+        },
         "my_accordion_Q6UPpb": {
           "type": "my_accordion",
           "settings": {
@@ -137,6 +153,7 @@
         "quantity_selector",
         "buy_buttons",
         "icon_text_eiTTH8",
+        "video_testimonials_QrrbJj",
         "my_accordion_Q6UPpb",
         "my_accordion_FFDBTD",
         "my_accordion_RaXVig",

@@ -7,9 +7,10 @@
       <ul class="benifits-list-item">
         {% for i in (1..10) %}
           {% assign setting_key = 'list_item_' | append: i %}
+          {% if block.settings[setting_key] != blank %}
+            <li>{{ block.settings[setting_key] }}</li>
+          {% endif %}
         {% endfor %}
-
-        <li>{{ block.settings[setting_key] }}</li>
       </ul>
     </div>
 {% endcase %}

@@ -16,10 +16,11 @@
                 | video_tag: autoplay: false, loop: true, muted: false, controls: true, image_size: '1200x'
               }}
               <button class="video-play-btn">►</button>
+
+              {% if block.settings[text_key] != blank %}
+                <p class="testimonial-text">{{ block.settings[text_key] }}</p>
+              {% endif %}
             </div>
-            {% if block.settings[text_key] != blank %}
-              <p class="testimonial-text">{{ block.settings[text_key] }}</p>
-            {% endif %}
           </div>
         {% endif %}
       {% endfor %}

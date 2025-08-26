@@ -206,4 +206,6 @@ button.video-play-btn {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    cursor: pointer;
+    pointer-events: none;
 }

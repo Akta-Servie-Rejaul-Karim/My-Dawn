@@ -189,3 +189,9 @@ letter-spacing: -0.48px;
     letter-spacing: -0.36px;
     margin: 0;
 }
+
+button.video-play-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+}

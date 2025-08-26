@@ -83,26 +83,29 @@
         1024: { slidesPerView: 3 },
       },
     });
-    const playButtons = document.querySelectorAll('.video-play-btn');
+    const videoWrappers = document.querySelectorAll('.testimonial-video');
 
-    playButtons.forEach((btn) => {
-      btn.addEventListener('click', function () {
-        const video = this.previousElementSibling; // the video element
+    videoWrappers.forEach((wrapper) => {
+      const video = wrapper.querySelector('video');
+      const playBtn = wrapper.querySelector('.video-play-btn');
+
+      // Click anywhere inside wrapper (video OR button)
+      wrapper.addEventListener('click', function () {
         if (video.paused) {
+          // Pause all other videos
+          document.querySelectorAll('.testimonial-video video').forEach((v) => {
+            if (v !== video) {
+              v.pause();
+              v.nextElementSibling.style.display = 'flex'; // show play button again
+            }
+          });
+
           video.play();
-          this.style.display = 'none'; // hide play button when playing
+          playBtn.style.display = 'none';
         } else {
           video.pause();
-          this.style.display = 'flex';
+          playBtn.style.display = 'flex';
         }
-
-        // Pause other videos when a new one plays
-        document.querySelectorAll('.testimonial-video-wrapper video').forEach((v) => {
-          if (v !== video) {
-            v.pause();
-            v.nextElementSibling.style.display = 'flex'; // show play button
-          }
-        });
       });
     });
   });

@@ -142,6 +142,9 @@ my-accordion .accordion-header h3 {
     padding: 12px 0;    
 
     }
+    ul.benifits-list-item li{
+        
+    }
 }
 my-accordion .accordion-header > * {
   margin: 0;

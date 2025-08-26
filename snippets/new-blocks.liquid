@@ -1,6 +1,6 @@
 {%- case block.type -%}
   {%- when 'review_count' -%}
-    <div class="review-blocks">
+    <div class="review-blocks" {{ block.shopify_attributes }}>
       <span class="star-count">
         {% assign rating = block.settings.start %}
         {% for i in (1..rating) %}
@@ -12,7 +12,10 @@
       <span class="review-text">{{ block.settings.text }}</span>
     </div>
   {%- when 'short_des' -%}
-    <p class="short-des" {{ block.shopify_attributes }}>{{ block.settings.short_des }}</p>
+    <div class="short-des-wrapper" {{ block.shopify_attributes }}>
+      <p class="short-des">{{ block.settings.short_des }}</p>
+    </div>
+
   {%- when 'benifits_list' -%}
     <div class="benifits-list">
       <h3 class="benifits-list-title">{{ blocks.settings.title }}</h3>

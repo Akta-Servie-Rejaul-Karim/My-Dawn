@@ -78,3 +78,9 @@ h3.benifits-list-title {
     line-height: 32px;
     letter-spacing: -0.54px;
 }
+
+.icon-row {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}

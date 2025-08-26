@@ -48,3 +48,9 @@ ul.benifits-list-item {
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
 }
+
+ul.benifits-list-item li img {
+    width: 42px;
+    height: 42px;
+    aspect-ratio: 1/1;
+}

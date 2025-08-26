@@ -19,3 +19,12 @@ span.star-count {
     line-height: 140%;
     letter-spacing: 0.64px;
 }
+
+.product__title h1 {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 47px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 47px;
+}

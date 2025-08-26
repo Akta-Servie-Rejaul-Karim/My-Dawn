@@ -61,10 +61,20 @@ ul.benifits-list-item li {
     align-items: center;
     gap: 10px;
     color: #1A1818;
-    font-family: Montserrat;
+    font-family: "Montserrat", sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: 18.2px;
     letter-spacing: -0.42px;
+}
+
+h3.benifits-list-title {
+    color: #000;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -0.54px;
 }

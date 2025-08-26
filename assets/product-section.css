@@ -22,7 +22,7 @@ span.star-count {
 
 .product__title h1 {
     color: #000;
-     font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 47px;
     font-style: normal;
     font-weight: 600;
@@ -32,7 +32,7 @@ span.star-count {
 
 p.short-des {
     color: #000;
-    font-family: Montserrat;
+    font-family: "Montserrat", sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;

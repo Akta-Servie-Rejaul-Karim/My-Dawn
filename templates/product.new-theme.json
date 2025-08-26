@@ -89,8 +89,8 @@
         "my_accordion_Q6UPpb": {
           "type": "my_accordion",
           "settings": {
-            "accordion_title": "Product Description",
-            "accordion_details": "",
+            "accordion_title": "Benefits",
+            "accordion_details": "<p>Blisque SHILAJIT + marries the ancient wisdom of pure Himalayan shilajit with carefully selected organic ashwagandha and moringa. This sophisticated resin delivers over 85 essential minerals and adaptogens that naturally enhance your body's energy systems, stress response, and cellular vitality.</p>",
             "border_top": false,
             "border_bottom": true,
             "open_by_default": false

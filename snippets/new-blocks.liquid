@@ -89,33 +89,8 @@
       </div>
     </div>
 
-  {% when 'accordion_item' %}
-    {% liquid
-      assign border_bottom = false
-      if block.settings.border_bottom == true
-        assign border_bottom = true
-      endif
-
-      assign by_default_open = false
-
-      if block.settings.by_default_open == true
-        assign by_default_open = true
-      endif
-    %}
-
-    <my-accordion {{ block.shopify_attributes }}>
-      <div
-        class="accordion-item "
-      >
-        <div class="accordion-header">
-          <h3>{{ block.settings.title }}</h3>
-          <span class="plus">+</span>
-          <span class="minus">-</span>
-        </div>
-
-        <div class="accordion-content">{{ block.settings.content }}</div>
-      </div>
-    </my-accordion>
+  {%- when 'my_accordion' -%}
+    {% render 'my-accordion', block: block %}
 {% endcase %}
 
 <script>

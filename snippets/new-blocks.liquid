@@ -1,5 +1,11 @@
 {%- case block.type -%}
   {%- when 'short_des' -%}
     <p class="short-des" {{ block.shopify_attributes }}>{{ block.settings.short_des }}</p>
-  {%- when 'short_des' -%}
+  {%- when 'benifits_list' -%}
+    <div class="benifits-list">
+      <h3 class="benifits-list-title">{{ blocks.settings.title }}</h3>
+      <ul class="benifits-list-item">
+        <li>{{ block.settings.list_item }}</li>
+      </ul>
+    </div>
 {% endcase %}

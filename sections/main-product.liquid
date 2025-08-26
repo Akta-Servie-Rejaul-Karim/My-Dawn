@@ -90,6 +90,8 @@
               {%- when '@app' -%}
                 {% render block %}
 
+                {% render 'new-blocks', block: block %}
+
               {%- when 'text' -%}
                 <p
                   class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"

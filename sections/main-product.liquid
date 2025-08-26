@@ -1102,32 +1102,37 @@
         }
       ]
     },
-    {
-      "type": "accordion_item",
+     {
+      "type": "my_accordion",
       "name": "Accordion Item",
       "settings": [
         {
           "type": "text",
-          "id": "title",
+          "id": "accordion_title",
           "label": "Accordion Title",
-          "default": "Accordion Title"
+          "default": "Product Description"
         },
         {
           "type": "richtext",
-          "id": "content",
-          "label": "Accordion Content",
-          "default": "<p>Add your accordion content here.</p>"
+          "id": "accordion_details",
+          "label": "Accordion Details"
+        },
+        {
+          "type": "checkbox",
+          "id": "border_top",
+          "label": "Show Top Border",
+          "default": false
         },
         {
           "type": "checkbox",
           "id": "border_bottom",
-          "label": "Add border bottom",
+          "label": "Show Bottom Border",
           "default": true
         },
         {
           "type": "checkbox",
-          "id": "by_default_open",
-          "label": "Open by default",
+          "id": "open_by_default",
+          "label": "Open By default",
           "default": false
         }
       ]

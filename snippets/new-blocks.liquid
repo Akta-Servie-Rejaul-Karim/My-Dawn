@@ -17,7 +17,7 @@
     </div>
 
   {%- when 'benifits_list' -%}
-    <div class="benifits-list">
+    <div class="benifits-list" {{ block.shopify_attributes }}>
       <h3 class="benifits-list-title">{{ block.settings.title }}</h3>
       <ul class="benifits-list-item">
         {% for i in (1..10) %}
@@ -36,7 +36,7 @@
     </div>
 
   {%- when 'icon_text' -%}
-    <div class="icon-row">
+    <div class="icon-row" {{ block.shopify_attributes }}>
       {% for i in (1..3) %}
         {% assign icon_key = 'icon_' | append: i %}
         {% assign title_key = 'title_' | append: i %}
@@ -57,7 +57,7 @@
     </div>
 
   {%- when 'video_testimonials' -%}
-    <div class="testimonial-slider">
+    <div class="testimonial-slider" {{ block.shopify_attributes }}>
       <h3 class="testimonial-title">{{ block.settings.section_title }}</h3>
       <div class="swiper testimonial-swiper">
         <div class="swiper-wrapper">
@@ -103,7 +103,7 @@
       endif
     %}
 
-    <my-accordion>
+    <my-accordion {{ block.shopify_attributes }}>
       <div
         class="
           accordion-item  {% if border_bottom %} border-bottom {% endif %}

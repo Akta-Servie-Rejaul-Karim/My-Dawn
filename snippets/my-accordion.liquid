@@ -1,5 +1,5 @@
 <style>
-  my-accordion.border{{ block.id }} {
+  my-accordion .border{{ block.id }} {
     {% if block.settings.border_top != false %}
       border-top: 1px solid rgba(0, 0, 0, 0.10);
     {% endif %}
@@ -9,8 +9,8 @@
   }
 </style>
 
-<my-accordion class="border{{ block.id }}" {{ block.shopify_attributes }}>
-  <div class="accordion-item {% if  block.settings.open_by_default %}active{% endif %}">
+<my-accordion class="" {{ block.shopify_attributes }}>
+  <div class="accordion-item {% if  block.settings.open_by_default %}active{% endif %} border{{ block.id }}">
     <div class="accordion-header">
       <h3>{{ block.settings.accordion_title }}</h3>
       <div class="acc-icon">

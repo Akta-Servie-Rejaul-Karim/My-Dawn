@@ -14,7 +14,7 @@
           <div class="swiper-slide testimonial-slide">
             <div class="testimonial-video">
               {{
-                block.settings.settings[video_key]
+                block.settings.settings.[video_key]
                 | video_tag: autoplay: false, loop: true, muted: false, controls: true, image_size: '1200x'
               }}
               <button class="video-play-btn">►</button>

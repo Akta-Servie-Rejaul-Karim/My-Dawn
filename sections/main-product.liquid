@@ -98,7 +98,7 @@
                   {{- block.settings.text -}}
                 </p>
 
-                {% render 'new-blocks', block: block %}
+                {% render 'new-blocks', block: block, when: when %}
 
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>

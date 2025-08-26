@@ -54,3 +54,16 @@ ul.benifits-list-item li img {
     height: 30px;
     aspect-ratio: 1/1;
 }
+
+ul.benifits-list-item li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1A1818;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18.2px;
+    letter-spacing: -0.42px;
+}

@@ -19,6 +19,13 @@
             "text_style": "uppercase"
           }
         },
+        "review_count_KJTdeF": {
+          "type": "review_count",
+          "settings": {
+            "start": 5,
+            "text": "(2,730 Reviews)"
+          }
+        },
         "title": {
           "type": "title",
           "settings": {}
@@ -67,6 +74,7 @@
       },
       "block_order": [
         "vendor",
+        "review_count_KJTdeF",
         "title",
         "price",
         "variant_picker",

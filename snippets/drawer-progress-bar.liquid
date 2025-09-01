@@ -88,6 +88,12 @@
       </span>
     {% endif %}
   </div>
+  {% assign free_shipping_text = block.settings.text_free_shipping
+    | replace: '{{amount}}', free_gift_threshold
+    | minus: cart_total
+    | money
+  %}
+  {{ free_shipping_text | rich_text }}
 
   <div class="progress-text">
     {% if block.settings.text_icon != blank %}

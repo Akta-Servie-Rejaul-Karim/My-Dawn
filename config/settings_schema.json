@@ -1479,7 +1479,12 @@
         "type": "richtext",
         "id": "text_free_gift",
         "label": "Congrats Text",
-        "default": "<p><strong> Congrats!</strong> You unlocked Free Gift + Free Shipping!</p>"
+        "default": "<p>Congrats! You Unlocked a FREE Support Band!</p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "text_icon",
+        "label": "Shipping text Icon"
       },
     ]
   }

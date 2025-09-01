@@ -36,6 +36,18 @@
   .milestone:empty{
     display: block;
   }
+  span.milestone {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    padding: 7.5px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 1px solid #D8BBD6;
+    background: #FFF;
+  }
 </style>
 
 {% assign free_shipping_threshold = settings.free_shipping_threshold | times: 100 %}

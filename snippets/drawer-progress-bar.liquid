@@ -90,18 +90,20 @@
   </div>
 
   <div class="progress-text">
-    {% if settings.text_icon != blank %}
-      <img src="{{ settings.text_icon | image_url }}" alt="icon">
+    {% if block.settings.text_icon != blank %}
+      <img src="{{ block.settings.text_icon | image_url }}" alt="icon">
     {% endif %}
 
     {% if cart_total >= free_gift_threshold %}
-      {{ settings.text_free_gift }}
+      {{ block.settings.text_free_gift }}
     {% elsif cart_total >= free_shipping_threshold %}
       {% assign remaining_for_gift = free_gift_threshold | minus: cart_total | money %}
-      {{ settings.text_free_shipping | replace: "{{amount }}", remaining_for_gift }}
+      {% assign free_shipping_text = block.settings.text_free_shipping | replace: '{{amount}}', remaining_for_gift %}
+      {{ free_shipping_text }}
     {% else %}
       {% assign remaining_for_shipping = free_shipping_threshold | minus: cart_total | money %}
-      {{ settings.text_to_unlock | replace: "{{amount }}", remaining_for_shipping }}
+      {% assign shipping_text = block.settings.text_to_unlock | replace: '{{amount}}', remaining_for_shipping %}
+      {{ shipping_text }}
     {% endif %}
   </div>
 </div>

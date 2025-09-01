@@ -1232,7 +1232,6 @@
         "default": "bottom left",
         "label": "t:settings_schema.badges.settings.position.label"
       },
-
       {
         "type": "color_scheme",
         "id": "sale_badge_color_scheme",
@@ -1435,6 +1434,16 @@
         "type": "product_list",
         "id": "products",
         "label": "Upsell Product List"
+      },
+      {
+        "type": "header",
+        "content": "Drawer Progress settings"
+      },
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free Shipping Threshold",
+        "default": 100
       }
     ]
   }

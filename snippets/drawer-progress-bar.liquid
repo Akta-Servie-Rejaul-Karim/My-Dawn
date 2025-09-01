@@ -9,53 +9,46 @@
     height: 9px;
     border-radius: 8px;
     background: #E1E1E1;
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* leave space for icons */
     position: relative;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-  }
-
-  .progress-fill,
-  .progress-fill-2 {
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: width 0.4s ease;
-    border-radius: 8px;
-    z-index: 0;
+    justify-content: space-between;
   }
 
   .progress-fill {
+    height: 100%;
     background: #D8BBD6;
-    border-radius: 8px 0 0 8px;
-  }
-
-  .progress-fill-2 {
-    background: #B28DB2;
-    border-radius: 0 8px 8px 0;
+    border-radius: 8px;
+    width: 0;
+    transition: width 0.4s ease;
+    display: block !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
   }
 
   .milestone {
     position: relative;
     z-index: 2;
+  }
+  .milestone:empty {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+  }
+  span.milestone {
     display: flex;
     width: 40px;
     height: 40px;
     padding: 7.5px;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
     border-radius: 20px;
     border: 1px solid #D8BBD6;
     background: #FFF;
-    font-size: 16px;
-    transition: all 0.3s ease;
-  }
-
-  .milestone.active {
-    background: #D8BBD6;
-    color: #fff;
   }
 </style>
 
@@ -63,26 +56,21 @@
 {% assign free_gift_threshold = settings.free_gift_threshold | times: 100 %}
 {% assign cart_total = cart.total_price %}
 
-{%- assign stage1_percent = cart_total | times: 100 | divided_by: free_shipping_threshold | at_most: 100 -%}
-{%- assign stage2_percent = cart_total
-  | minus: free_shipping_threshold
-  | times: 100
-  | divided_by: free_gift_threshold
-  | at_least: 0
-  | at_most: 100
--%}
-
 <div class="free-shipping-progress">
   <div class="progress-bar">
-    <!-- Fill stages -->
-    <div class="progress-fill" style="width: {{ stage1_percent }}%;"></div>
-    {% if cart_total > free_shipping_threshold %}
-      <div class="progress-fill-2" style="width: {{ stage2_percent }}%;"></div>
-    {% endif %}
+    <div
+      class="progress-fill"
+      style="width: {{ cart_total | times: 100 | divided_by: free_gift_threshold | at_most: 100 }}%;"
+    ></div>
 
-    <!-- Milestones -->
-    <span class="milestone {% if cart_total >= free_shipping_threshold %}active{% endif %}">🚚</span>
-    <span class="milestone {% if cart_total >= free_gift_threshold %}active{% endif %}">🎁</span>
+    <!-- Milestone markers -->
+    <span class="milestone"></span>
+    <span
+      class="milestone"
+    >
+      🚚
+    </span>
+    <span class="milestone">🎁</span>
   </div>
 
   <p class="progress-text">

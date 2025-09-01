@@ -90,17 +90,18 @@
   </div>
 
   <div class="progress-text">
-    {% if block.settings.text_icon != blank %}
-      <img src="{{ block.settings.text_icon | image_url }}" alt="icon">
+    {% if settings.text_icon != blank %}
+      <img src="{{ settings.text_icon | image_url }}" alt="icon">
     {% endif %}
+
     {% if cart_total >= free_gift_threshold %}
-      🎁 Congrats! You unlocked <strong>Free Gift + Free Shipping</strong>!
+      {{ settings.text_free_gift | rich_text }}
     {% elsif cart_total >= free_shipping_threshold %}
-      🚚 You unlocked <strong>Free Shipping</strong> — add
-      <strong>{{ free_gift_threshold | minus: cart_total | money }}</strong> more to get a Free Gift!
+      {% assign remaining_for_gift = free_gift_threshold | minus: cart_total | money %}
+      {{ settings.text_free_shipping | rich_text | replace: "{{amount }}", remaining_for_gift }}
     {% else %}
-      Add <strong>{{ free_shipping_threshold | minus: cart_total | money }}</strong> to unlock
-      <strong>Free Shipping</strong>.
+      {% assign remaining_for_shipping = free_shipping_threshold | minus: cart_total | money %}
+      {{ settings.text_to_unlock | rich_text | replace: "{{amount }}", remaining_for_shipping }}
     {% endif %}
   </div>
 </div>

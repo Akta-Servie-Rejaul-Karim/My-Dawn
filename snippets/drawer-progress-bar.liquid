@@ -65,12 +65,8 @@
 
     <!-- Milestone markers -->
     <span class="milestone"></span>
-    <span
-      class="milestone"
-    >
-      🚚
-    </span>
-    <span class="milestone">🎁</span>
+    <span class="milestone {% if cart_total >= free_shipping_threshold %}active{% endif %}">🚚</span>
+    <span class="milestone {% if cart_total >= free_gift_threshold %}active{% endif %}">🎁</span>
   </div>
 
   <p class="progress-text">

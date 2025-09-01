@@ -1444,6 +1444,12 @@
         "id": "free_shipping_threshold",
         "label": "Free Shipping Threshold",
         "default": 100
+      },
+      {
+        "type": "number",
+        "id": "free_gift_threshold",
+        "label": "Free gift threshold",
+        "default": 100
       }
     ]
   }

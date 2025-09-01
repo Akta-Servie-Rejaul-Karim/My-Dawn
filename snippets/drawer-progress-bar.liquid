@@ -8,50 +8,60 @@
   .progress-bar {
     height: 9px;
     border-radius: 8px;
-    background: #eee;
+    background: #E1E1E1;
     overflow: hidden;
     margin-bottom: 8px;
-    background: #E1E1E1;
+    position: relative;
   }
 
   .progress-fill {
     height: 100%;
     background: #D8BBD6;
-    width: 0;
     border-radius: 8px;
+    width: 0;
     transition: width 0.4s ease;
   }
-  .progress-fill:empty{
-    display: block;
 
+  /* Add markers for milestones */
+  .progress-bar::before,
+  .progress-bar::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    width: 2px;
+    height: 15px;
+    background: #333;
   }
 
-  .progress-text strong {
-    font-weight: bold;
+  .progress-bar::before {
+    left: {{ free_shipping_threshold | times: 100 | divided_by: free_gift_threshold }}%;
+  }
+  .progress-bar::after {
+    left: 100%;
   }
 </style>
 
 {% assign free_shipping_threshold = settings.free_shipping_threshold | times: 100 %}
+{% assign free_gift_threshold = settings.free_gift_threshold | times: 100 %}
 {% assign cart_total = cart.total_price %}
-
-{% assign remaining = free_shipping_threshold | minus: cart_total %}
-{% if remaining < 0 %}
-  {% assign remaining = 0 %}
-{% endif %}
 
 <div class="free-shipping-progress">
   <div class="progress-bar">
     <div
       class="progress-fill"
-      style="width: {{ cart_total | times: 100 | divided_by: free_shipping_threshold | at_most: 100 }}%;"
+      style="width: {{ cart_total | times: 100 | divided_by: free_gift_threshold | at_most: 100 }}%;"
     ></div>
   </div>
 
   <p class="progress-text">
-    {% if cart_total >= free_shipping_threshold %}
-      🎉 You unlocked <strong>Free Standard Shipping!</strong>
+    {% if cart_total >= free_gift_threshold %}
+      🎁 Congrats! You unlocked <strong>Free Gift + Free Shipping</strong>!
+    {% elsif cart_total >= free_shipping_threshold %}
+      🚚 You unlocked <strong>Free Shipping</strong> — add
+      <strong>{{ free_gift_threshold | minus: cart_total | money }}</strong> more to get a Free Gift!
     {% else %}
-      Add <strong>{{ remaining | money }}</strong> to unlock <strong>Free Standard Shipping!</strong>
+      Add <strong>{{ free_shipping_threshold | minus: cart_total | money }}</strong> to unlock
+      <strong>Free Shipping</strong>.
     {% endif %}
   </p>
 </div>

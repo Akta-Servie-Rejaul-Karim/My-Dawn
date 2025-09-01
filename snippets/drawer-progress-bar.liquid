@@ -1,1 +1,24 @@
-<div class="darwer-progress-bar"></div>
+{% assign free_shipping_threshold = 50.00 %} {# set your free shipping amount #}
+{% assign cart_total = cart.total_price | divided_by: 100.0 %} {# convert cents to dollars #}
+
+{% assign remaining = free_shipping_threshold | minus: cart_total %}
+{% if remaining < 0 %}
+  {% assign remaining = 0 %}
+{% endif %}
+
+<div class="free-shipping-progress">
+  <div class="progress-bar">
+    <div
+      class="progress-fill"
+      style="width: {{ cart_total | divided_by: free_shipping_threshold | times: 100 | at_most: 100 }}%;"
+    ></div>
+  </div>
+
+  <p class="progress-text">
+    {% if cart_total >= free_shipping_threshold %}
+      🎉 You unlocked <strong>Free Standard Shipping!</strong>
+    {% else %}
+      Add <strong>{{ remaining | money }}</strong> to unlock <strong>Free Standard Shipping!</strong>
+    {% endif %}
+  </p>
+</div>

@@ -29,7 +29,7 @@
   }
 </style>
 
-{% assign free_shipping_threshold = 50.00 %}
+{% assign free_shipping_threshold = 100.00 %}
 {% assign cart_total = cart.total_price | divided_by: 100.0 %}
 
 {% assign remaining = free_shipping_threshold | minus: cart_total %}

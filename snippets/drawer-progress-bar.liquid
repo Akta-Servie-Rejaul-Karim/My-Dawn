@@ -69,14 +69,14 @@
 
     <!-- Milestone markers -->
     <span class="milestone"></span>
-    {% if settings.free_shipping != blank %}
+    {% if settings.free_shipping_icon != blank %}
       <span class="milestone {% if cart_total >= free_shipping_threshold %}active{% endif %}">
-        <img src="{{ settings.free_shipping | image_url }}" width="" height="" alt="icon">
+        <img src="{{ settings.free_shipping_icon | image_url }}" width="" height="" alt="icon">
       </span>
     {% endif %}
-    {% if settings.free_shipping != blank %}
+    {% if settings.free_product_icon != blank %}
       <span class="milestone {% if cart_total >= free_gift_threshold %}active{% endif %}">
-        <img src="{{ settings.free_shipping | image_url }}" width="" height="" alt="icon">
+        <img src="{{ settings.free_product_icon | image_url }}" width="" height="" alt="icon">
       </span>
     {% endif %}
   </div>

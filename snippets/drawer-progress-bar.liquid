@@ -90,6 +90,9 @@
   </div>
 
   <div class="progress-text">
+    {% if block.settings.text_icon != blank %}
+      <img src="{{ block.settings.text_icon | image_url }}" alt="icon">
+    {% endif %}
     {% if cart_total >= free_gift_threshold %}
       🎁 Congrats! You unlocked <strong>Free Gift + Free Shipping</strong>!
     {% elsif cart_total >= free_shipping_threshold %}

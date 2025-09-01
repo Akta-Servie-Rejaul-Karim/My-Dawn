@@ -1450,7 +1450,17 @@
         "id": "free_gift_threshold",
         "label": "Free gift threshold",
         "default": 150
-      }
+      },
+      {
+        "type": "image_picker",
+        "id": "free_shipping_icon",
+        "label": "Free Shipping Icon"
+      },
+      {
+        "type": "image_picker",
+        "id": "free_product_icon",
+        "label": "Free Product Icon"
+      },
     ]
   }
 ]

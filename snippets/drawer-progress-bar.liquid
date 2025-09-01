@@ -32,7 +32,10 @@
   .milestone {
       position: relative;
       z-index: 2;
-  }
+    }
+  .milestone:empty{
+    display: block;
+    }
 </style>
 
 {% assign free_shipping_threshold = settings.free_shipping_threshold | times: 100 %}
@@ -47,6 +50,7 @@
     ></div>
 
     <!-- Milestone markers -->
+    <span class="milestone"></span>
     <span
       class="milestone"
     >

@@ -11,6 +11,8 @@
     background: #E1E1E1;
     margin-bottom: 20px; /* leave space for icons */
     position: relative;
+    display: flex;
+    align-items: center;
   }
 
   .progress-fill {
@@ -20,14 +22,14 @@
     width: 0;
     transition: width 0.4s ease;
     display: block !important;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   /* Milestone icons */
   .milestone {
-    position: absolute;
-    top: 14px; /* place below the bar */
-    transform: translateX(-50%);
-    font-size: 16px;
+
   }
 </style>
 

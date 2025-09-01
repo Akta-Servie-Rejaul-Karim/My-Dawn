@@ -1472,7 +1472,7 @@
         "type": "richtext",
         "id": "text_free_shipping",
         "label": "For unlock Free Product",
-        "default": "<p>You unlocked Free Shipping — add <strong>{{amount}}</strong> more to get a Free Gift!</p>",
+        "default": "<p>Spend {{amount}} More to Unlock a FREE Support Band</p>",
         "info": "Use {{amount}}"
       },
       {

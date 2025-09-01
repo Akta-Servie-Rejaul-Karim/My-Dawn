@@ -1,41 +1,41 @@
 <style>
-    .free-shipping-progress {
-      margin: 15px 0;
-      text-align: center;
-      font-size: 14px;
-    }
+  .free-shipping-progress {
+    margin: 15px 0;
+    text-align: center;
+    font-size: 14px;
+  }
 
-    .progress-bar {
-      height: 9px;
-      border-radius: 8px;
-      background: #E1E1E1;
-      margin-bottom: 20px; /* leave space for icons */
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+  .progress-bar {
+    height: 9px;
+    border-radius: 8px;
+    background: #E1E1E1;
+    margin-bottom: 20px; /* leave space for icons */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-    .progress-fill {
-      height: 100%;
-      background: #D8BBD6;
-      border-radius: 8px;
-      width: 0;
-      transition: width 0.4s ease;
-      display: block !important;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
+  .progress-fill {
+    height: 100%;
+    background: #D8BBD6;
+    border-radius: 8px;
+    width: 0;
+    transition: width 0.4s ease;
+    display: block !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
 
   .milestone {
-      position: relative;
-      z-index: 2;
-    }
+    position: relative;
+    z-index: 2;
+  }
   .milestone:empty{
     display: block;
-    }
+  }
 </style>
 
 {% assign free_shipping_threshold = settings.free_shipping_threshold | times: 100 %}

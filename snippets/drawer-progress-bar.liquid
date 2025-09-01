@@ -69,7 +69,11 @@
 
     <!-- Milestone markers -->
     <span class="milestone"></span>
-    <span class="milestone {% if cart_total >= free_shipping_threshold %}active{% endif %}">🚚</span>
+    <span class="milestone {% if cart_total >= free_shipping_threshold %}active{% endif %}">
+      {% if settings.free_shipping != blank %}
+        <img src="{{ settings.free_shipping | image_url }}" alt="icon">
+      {% endif %}
+    </span>
     <span class="milestone {% if cart_total >= free_gift_threshold %}active{% endif %}">🎁</span>
   </div>
 

@@ -1465,7 +1465,7 @@
         "type": "richtext",
         "id": "text_to_unlock",
         "label": "For unlock Free Shipping",
-        "default": "<p>Add <strong>{{amount}}</strong> to unlock Free Shipping.</p>",
+        "default": "<p>Add {{amount}} to unlock Free Standard Shipping!</p>",
         "info": "Use {{amount}}"
       },
       {

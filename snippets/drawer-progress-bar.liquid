@@ -31,8 +31,8 @@
   }
 </style>
 
-{% assign free_shipping_threshold = settings.free_shipping_threshold %}
-{% assign cart_total = cart.total_price | divided_by: 100 %}
+{% assign free_shipping_threshold = settings.free_shipping_threshold | times: 100 %}
+{% assign cart_total = cart.total_price %}
 
 {% assign remaining = free_shipping_threshold | minus: cart_total %}
 {% if remaining < 0 %}
@@ -43,7 +43,7 @@
   <div class="progress-bar">
     <div
       class="progress-fill"
-      style="width: {{ cart_total | divided_by: free_shipping_threshold | times: 100 | at_most: 100 }}%;"
+      style="width: {{ cart_total | times: 100 | divided_by: free_shipping_threshold | at_most: 100 }}%;"
     ></div>
   </div>
 

@@ -1463,22 +1463,24 @@
       },
       {
         "type": "richtext",
-        "id": "text_free_gift",
-        "label": "Text for Free Gift + Free Shipping",
-        "default": "<p><strong>🎁 Congrats!</strong> You unlocked Free Gift + Free Shipping!</p>"
+        "id": "text_to_unlock",
+        "label": "For unlock Free Shipping",
+        "default": "<p>Add <strong>{{amount}}</strong> to unlock Free Shipping.</p>",
+        "info": "Use {{amount}}"
       },
       {
         "type": "richtext",
         "id": "text_free_shipping",
-        "label": "Text for Free Shipping unlocked",
-        "default": "<p>You unlocked Free Shipping — add <strong>{{amount}}</strong> more to get a Free Gift!</p>"
+        "label": "For unlock Free Product",
+        "default": "<p>You unlocked Free Shipping — add <strong>{{amount}}</strong> more to get a Free Gift!</p>",
+        "info": "Use {{amount}}"
       },
       {
         "type": "richtext",
-        "id": "text_to_unlock",
-        "label": "Text for add more to unlock Free Shipping",
-        "default": "<p>Add <strong>{{amount}}</strong> to unlock Free Shipping.</p>"
-      }
+        "id": "text_free_gift",
+        "label": "Congrats Text",
+        "default": "<p><strong> Congrats!</strong> You unlocked Free Gift + Free Shipping!</p>"
+      },
     ]
   }
 ]

@@ -10,7 +10,7 @@
     border-radius: 8px;
     background: #E1E1E1;
     overflow: hidden;
-    margin-bottom: 8px;
+    margin-bottom: 20px; /* leave space for icons */
     position: relative;
   }
 
@@ -23,22 +23,12 @@
     display: block !important;
   }
 
-  /* Add markers for milestones */
-  .progress-bar::before,
-  .progress-bar::after {
-    content: "";
+  /* Milestone icons */
+  .milestone {
     position: absolute;
-    top: -3px;
-    width: 2px;
-    height: 15px;
-    background: #333;
-  }
-
-  .progress-bar::before {
-    left: {{ free_shipping_threshold | times: 100 | divided_by: free_gift_threshold }}%;
-  }
-  .progress-bar::after {
-    left: 100%;
+    top: 14px; /* place below the bar */
+    transform: translateX(-50%);
+    font-size: 16px;
   }
 </style>
 
@@ -52,6 +42,15 @@
       class="progress-fill"
       style="width: {{ cart_total | times: 100 | divided_by: free_gift_threshold | at_most: 100 }}%;"
     ></div>
+
+    <!-- Milestone markers -->
+    <span
+      class="milestone"
+      style="left: {{ free_shipping_threshold | times: 100 | divided_by: free_gift_threshold }}%;"
+    >
+      🚚
+    </span>
+    <span class="milestone" style="left: 100%;">🎁</span>
   </div>
 
   <p class="progress-text">

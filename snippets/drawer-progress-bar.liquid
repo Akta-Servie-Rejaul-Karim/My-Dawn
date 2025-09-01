@@ -74,7 +74,7 @@
     <!-- Milestone markers -->
     <span class="milestone"></span>
     {% if settings.free_shipping_icon != blank %}
-      <span class="milestone {% if cart_total >= free_shipping_threshold %}active{% endif %}">
+      <span class="milestone free-shiping-icon {% if cart_total >= free_shipping_threshold %}active{% endif %}">
         <img src="{{ settings.free_shipping_icon | image_url }}" width="" height="" alt="icon">
       </span>
     {% endif %}

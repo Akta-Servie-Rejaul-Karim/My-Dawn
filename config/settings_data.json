@@ -130,6 +130,8 @@
       "kids-brush-green",
       "kids-brush-pink"
     ],
+    "free_shipping_icon": "shopify://shop_images/SVG.png",
+    "free_product_icon": "shopify://shop_images/Background_3.png",
     "page_width": 1200,
     "badge_corner_radius": 40,
     "sections": {

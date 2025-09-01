@@ -75,7 +75,9 @@
       </span>
     {% endif %}
     {% if settings.free_shipping != blank %}
-      <span class="milestone {% if cart_total >= free_gift_threshold %}active{% endif %}"> 🎁 </span>
+      <span class="milestone {% if cart_total >= free_gift_threshold %}active{% endif %}">
+        <img src="{{ settings.free_shipping | image_url }}" alt="icon"
+      ></span>
     {% endif %}
   </div>
 

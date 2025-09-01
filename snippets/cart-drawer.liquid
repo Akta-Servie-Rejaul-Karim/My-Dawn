@@ -74,6 +74,9 @@
           </span>
         </button>
       </div>
+
+      {% render 'progress-bar', cart: cart %}
+
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"
@@ -455,12 +458,7 @@
         </form>
       </cart-drawer-items>
       <div class="drawer__footer">
-
-
-      {% render 'drawer-upsell', cart: cart %}
-
-
-
+        {% render 'drawer-upsell', cart: cart %}
 
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
@@ -566,9 +564,5 @@
     </div>
   </div>
 </cart-drawer>
-
-
-
-
 
 {% comment %} <script src="{{ 'test.js' |  asset_url }}"></script> {% endcomment %}

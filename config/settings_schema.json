@@ -1449,7 +1449,7 @@
         "type": "number",
         "id": "free_gift_threshold",
         "label": "Free gift threshold",
-        "default": 100
+        "default": 150
       }
     ]
   }

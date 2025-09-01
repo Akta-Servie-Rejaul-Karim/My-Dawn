@@ -135,6 +135,7 @@
     "text_to_unlock": "<p>Add {{amount}} to unlock <strong>Free Standard Shipping!</strong></p>",
     "text_free_shipping": "<p>Spend {{amount}} More to Unlock a<strong> FREE Support Band</strong></p>",
     "text_free_gift": "<p>Congrats! You Unlocked a <strong>FREE Support Band!</strong></p>",
+    "text_icon": "shopify://shop_images/Background_5.png",
     "page_width": 1200,
     "badge_corner_radius": 40,
     "sections": {

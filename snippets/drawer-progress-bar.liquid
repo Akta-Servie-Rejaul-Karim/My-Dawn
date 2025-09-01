@@ -1,3 +1,30 @@
+<style>
+  .free-shipping-progress {
+        margin: 15px 0;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .progress-bar {
+        height: 10px;
+        border-radius: 20px;
+        background: #eee;
+        overflow: hidden;
+        margin-bottom: 8px;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #c084fc, #ec4899); /* purple-pink gradient */
+        width: 0;
+        transition: width 0.4s ease;
+    }
+
+    .progress-text strong {
+        font-weight: bold;
+    }
+</style>
+
 {% assign free_shipping_threshold = 50.00 %} {# set your free shipping amount #}
 {% assign cart_total = cart.total_price | divided_by: 100.0 %} {# convert cents to dollars #}
 

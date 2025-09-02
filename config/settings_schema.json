@@ -1452,6 +1452,11 @@
         "default": 150
       },
       {
+        "type": "product",
+        "id": "free_gift",
+        "label": "Select Free Gift Product"
+      },
+      {
         "type": "image_picker",
         "id": "free_shipping_icon",
         "label": "Free Shipping Icon"
@@ -1485,11 +1490,6 @@
         "type": "image_picker",
         "id": "text_icon",
         "label": "Shipping text Icon"
-      },
-      {
-        "type": "product",
-        "id": "free_gift",
-        "label": "Select Free Gift Product"
       },
     ]
   }

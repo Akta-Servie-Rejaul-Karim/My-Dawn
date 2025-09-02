@@ -1,0 +1,70 @@
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const FREE_GIFT_ID = '{{ settings.free_gift_product.selected_or_first_available_variant.id }}';
+  const FREE_GIFT_THRESHOLD = {{ settings.free_gift_threshold }} * 100;
+
+  const waitForCart = setInterval(() => {
+    if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
+      clearInterval(waitForCart);
+
+      subscribe(PUB_SUB_EVENTS.cartUpdate, async (event) => {
+        const cartData = event.cartData;
+        if (!cartData || !cartData.items) return;
+
+        const cartTotal = cartData.items.reduce((sum, item) => sum + (item.final_line_price || 0), 0);
+        const freeGiftItem = cartData.items.find(item => item.variant_id.toString() === FREE_GIFT_ID);
+
+        // Add free gift if threshold met and not already in cart
+        if (cartTotal >= FREE_GIFT_THRESHOLD && !freeGiftItem) {
+          console.log('🎁 Adding free gift...');
+          await fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+              id: FREE_GIFT_ID, 
+              quantity: 1, 
+              properties: { FREE_GIFT: true } 
+            })
+          });
+          // Force a cart update so frontend shows the gift
+          fetch(`${routes.cart_url}?sections=main-cart-items,cart-drawer,cart-icon-bubble,main-cart-footer`)
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(html, 'text/html');
+              ['main-cart-items', 'cart-drawer', 'cart-icon-bubble', 'main-cart-footer'].forEach(id => {
+                const target = document.getElementById(id);
+                const source = doc.getElementById(id);
+                if (target && source) target.innerHTML = source.innerHTML;
+              });
+            });
+        }
+
+        // Remove free gift if threshold not met and gift exists
+        if (cartTotal < FREE_GIFT_THRESHOLD && freeGiftItem) {
+          console.log('❌ Removing free gift...');
+          await fetch('/cart/change.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ line: freeGiftItem.key, quantity: 0 })
+          });
+          // Force a cart update so frontend removes the gift
+          fetch(`${routes.cart_url}?sections=main-cart-items,cart-drawer,cart-icon-bubble,main-cart-footer`)
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(html, 'text/html');
+              ['main-cart-items', 'cart-drawer', 'cart-icon-bubble', 'main-cart-footer'].forEach(id => {
+                const target = document.getElementById(id);
+                const source = doc.getElementById(id);
+                if (target && source) target.innerHTML = source.innerHTML;
+              });
+            });
+        }
+      });
+
+      console.log('✅ Free gift listener initialized');
+    }
+  }, 100);
+});
+</script>

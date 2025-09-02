@@ -130,6 +130,7 @@
       "kids-brush-green",
       "kids-brush-pink"
     ],
+    "free_gift": "kids-brush-pink",
     "free_shipping_icon": "shopify://shop_images/SVG.png",
     "free_product_icon": "shopify://shop_images/Background_3.png",
     "text_to_unlock": "<p>Add {{amount}} to unlock <strong>Free Standard Shipping!</strong></p>",

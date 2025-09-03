@@ -96,18 +96,7 @@
     manageFreeGift();
 
 
-
-
-  });
-
-
-  document.addEventListener('DOMContentLoaded', () => {
-  (async () => {
-    // Run on page load
-    await manageFreeGift();
-
-    // Listen for cart updates
-    if (typeof PUB_SUB_EVENTS !== 'undefined') {
+if (typeof PUB_SUB_EVENTS !== 'undefined') {
       document.addEventListener(PUB_SUB_EVENTS.cartUpdate, (event) => {
         if (!event.detail || event.detail.source !== 'free-gift') {
           manageFreeGift();
@@ -115,11 +104,5 @@
       });
     }
 
-    // Optional: add a gift manually and trigger cartUpdate
-    // await addGift(FREE_GIFT_ID, 1);
-    // if (typeof publish === 'function') {
-    //   publish(PUB_SUB_EVENTS.cartUpdate, { source: 'free-gift', cartData: await getCart() });
-    // }
-  })();
-});
+  });
 </script>

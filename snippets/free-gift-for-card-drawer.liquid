@@ -30,6 +30,26 @@ const addGift = async (giftVariantId, quantity = 1) => {
   }
 };
 
+const removeGift = async (lineItemKey) => {
+  try {
+    const res = await fetch('/cart/change.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: lineItemKey,
+        quantity: 0
+      })
+    });
+
+    if (!res.ok) throw new Error(`Error: ${res.status}`);
+
+    const data = await res.json();
+    console.log('Gift removed:', data);
+    return data;
+  } catch (err) {
+    console.error('Error removing gift:', err);
+  }
+};
 
         
 

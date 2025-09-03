@@ -3,14 +3,11 @@
     const FREE_GIFT_ID = '{{ settings.free_gift_product.selected_or_first_available_variant.id }}';
     const FREE_GIFT_THRESHOLD = {{ settings.free_gift_threshold }} * 100;
 
-
     const addGift = async (giftVariantId, quantity = 1) => {
       try {
         const res = await fetch('/cart/add.js', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             id: giftVariantId,
             quantity: quantity,
@@ -18,10 +15,7 @@
           })
         });
 
-        if (!res.ok) {
-          throw new Error(`Error: ${res.status}`);
-        }
-
+        if (!res.ok) throw new Error(`Error: ${res.status}`);
         const data = await res.json();
         console.log('Gift added:', data);
         return data;
@@ -35,14 +29,10 @@
         const res = await fetch('/cart/change.js', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            id: lineItemKey,
-            quantity: 0
-          })
+          body: JSON.stringify({ id: lineItemKey, quantity: 0 })
         });
 
         if (!res.ok) throw new Error(`Error: ${res.status}`);
-
         const data = await res.json();
         console.log('Gift removed:', data);
         return data;
@@ -51,18 +41,16 @@
       }
     };
 
-        
     const getCart = async () => {
       const res = await fetch('/cart.js');
       if (!res.ok) throw new Error(`Error: ${res.status}`);
       return await res.json();
     };
 
-    // Function: check if cart is eligible for free gift
     const isEligibleForGift = async () => {
       try {
         const cart = await getCart();
-        const total = cart.total_price; // already in cents
+        const total = cart.total_price; // cents
 
         if (total >= FREE_GIFT_THRESHOLD) {
           console.log(`✅ Eligible for free gift! Cart total: ${total / 100}`);
@@ -77,5 +65,35 @@
       }
     };
 
+    // 🆕 Manager function: add/remove free gift
+    const manageFreeGift = async () => {
+      try {
+        const cart = await getCart();
+        const eligible = cart.total_price >= FREE_GIFT_THRESHOLD;
+
+        // check if gift is already in cart
+        const giftItem = cart.items.find(item => item.variant_id == FREE_GIFT_ID);
+
+        if (eligible && !giftItem) {
+          console.log('Adding free gift 🎁');
+          await addGift(FREE_GIFT_ID, 1);
+        } else if (!eligible && giftItem) {
+          console.log('Removing free gift ❌');
+          await removeGift(giftItem.key);
+        } else {
+          console.log('No action needed.');
+        }
+      } catch (err) {
+        console.error('Error managing free gift:', err);
+      }
+    };
+
+    // Example: run manager on page load
+    manageFreeGift();
+
+    // Optional: run manager after AJAX cart updates (if you have cart events)
+    document.addEventListener('cart:updated', () => {
+      manageFreeGift();
+    });
   });
 </script>

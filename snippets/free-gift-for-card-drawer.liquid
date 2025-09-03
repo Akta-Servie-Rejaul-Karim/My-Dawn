@@ -13,7 +13,8 @@ const addGift = async (giftVariantId, quantity = 1) => {
       },
       body: JSON.stringify({
         id: giftVariantId,
-        quantity: quantity
+        quantity: quantity,
+        properties: { FREE_GIFT: true }
       })
     });
 
@@ -30,16 +31,7 @@ const addGift = async (giftVariantId, quantity = 1) => {
 };
 
 
-        await fetch('/cart/add.js', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            id: FREE_GIFT_ID,
-            quantity: 1,
-            properties: { FREE_GIFT: true }
-          })
-        });
-
+        
 
 
         await fetch('/cart/change.js', {

@@ -4,26 +4,30 @@
         const FREE_GIFT_THRESHOLD = {{ settings.free_gift_threshold }} * 100;
 
 
-  const addGift = (giftVariantId, quantity = 1) => {
-    return fetch('/cart/add.js', {
+const addGift = async (giftVariantId, quantity = 1) => {
+  try {
+    const res = await fetch('/cart/add.js', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        id: giftVariantId,  // variant ID of the gift product
+        id: giftVariantId,
         quantity: quantity
       })
-    })
-    .then(res => res.json())
-    .then(data => {
-      console.log('Gift added:', data);
-      return data;
-    })
-    .catch(err => {
-      console.error('Error adding gift:', err);
     });
-  };
+
+    if (!res.ok) {
+      throw new Error(`Error: ${res.status}`);
+    }
+
+    const data = await res.json();
+    console.log('Gift added:', data);
+    return data;
+  } catch (err) {
+    console.error('Error adding gift:', err);
+  }
+};
 
 
         await fetch('/cart/add.js', {

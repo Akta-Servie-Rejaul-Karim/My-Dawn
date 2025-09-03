@@ -3,6 +3,10 @@
     const FREE_GIFT_ID = '{{ settings.free_gift_product.selected_or_first_available_variant.id }}';
     const FREE_GIFT_THRESHOLD = {{ settings.free_gift_threshold }} * 100;
 
+
+    console.log('id', FREE_GIFT_ID)
+    console.log('id', FREE_GIFT_THRESHOLD)
+
     const addGift = async (giftVariantId, quantity = 1) => {
       try {
         const res = await fetch('/cart/add.js', {

@@ -38,11 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (eligible && !giftItem) {
         console.log('Adding free gift 🎁');
         await addGift(FREE_GIFT_ID, 1);
+         await updateDrawer();
       } else if (!eligible && giftItem) {
         console.log('Removing free gift ❌');
         await removeGift(giftItem.key);
+         await updateDrawer();
       } else {
-        console.log('No action needed.');
+        console.log(' test No action needed.');
       }
     } catch (err) {
       console.error('Free gift error:', err);

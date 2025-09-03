@@ -1,118 +1,69 @@
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const FREE_GIFT_ID = '{{ settings.free_gift.selected_or_first_available_variant.id }}';
-    const FREE_GIFT_THRESHOLD = {{ settings.free_gift_threshold }} * 100;
+document.addEventListener('DOMContentLoaded', () => {
+  const FREE_GIFT_ID = {{ settings.free_gift.selected_or_first_available_variant.id }};
+  const FREE_GIFT_THRESHOLD = {{ settings.free_gift_threshold }} * 100;
 
+  const addGift = async (variantId, quantity = 1) => {
+    const res = await fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity, properties: { FREE_GIFT: true } })
+    });
+    if (!res.ok) throw new Error(`Error adding gift: ${res.status}`);
+    return res.json();
+  };
 
-    console.log('id', FREE_GIFT_ID)
-    console.log('price', FREE_GIFT_THRESHOLD)
+  const removeGift = async (lineKey) => {
+    const res = await fetch('/cart/change.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: lineKey, quantity: 0 })
+    });
+    if (!res.ok) throw new Error(`Error removing gift: ${res.status}`);
+    return res.json();
+  };
 
-    const addGift = async (giftVariantId, quantity = 1) => {
-      try {
-        const res = await fetch('/cart/add.js', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            id: giftVariantId,
-            quantity: quantity,
-            properties: { FREE_GIFT: true }
-          })
-        });
+  const getCart = async () => {
+    const res = await fetch('/cart.js');
+    if (!res.ok) throw new Error(`Error fetching cart: ${res.status}`);
+    return res.json();
+  };
 
-        if (!res.ok) throw new Error(`Error: ${res.status}`);
-        const data = await res.json();
-        console.log('Gift added:', data);
-        return data;
-      } catch (err) {
-        console.error('Error adding gift:', err);
+  const manageFreeGift = async () => {
+    try {
+      const cart = await getCart();
+      const eligible = cart.total_price >= FREE_GIFT_THRESHOLD;
+      const giftItem = cart.items.find(i => i.variant_id == FREE_GIFT_ID);
+
+      if (eligible && !giftItem) {
+        console.log('Adding free gift 🎁');
+        await addGift(FREE_GIFT_ID, 1);
+      } else if (!eligible && giftItem) {
+        console.log('Removing free gift ❌');
+        await removeGift(giftItem.key);
+      } else {
+        console.log('No action needed.');
       }
-    };
+    } catch (err) {
+      console.error('Free gift error:', err);
+    }
+  };
 
-    const removeGift = async (lineItemKey) => {
-      try {
-        const res = await fetch('/cart/change.js', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ id: lineItemKey, quantity: 0 })
-        });
+  // ✅ Run on page load
+  manageFreeGift();
 
-        if (!res.ok) throw new Error(`Error: ${res.status}`);
-        const data = await res.json();
-        console.log('Gift removed:', data);
-        return data;
-      } catch (err) {
-        console.error('Error removing gift:', err);
-      }
-    };
-
-    const getCart = async () => {
-      const res = await fetch('/cart.js');
-      if (!res.ok) throw new Error(`Error: ${res.status}`);
-      return await res.json();
-    };
-
-    const isEligibleForGift = async () => {
-      try {
-        const cart = await getCart();
-        const total = cart.total_price; // cents
-
-        if (total >= FREE_GIFT_THRESHOLD) {
-          console.log(`✅ Eligible for free gift! Cart total: ${total / 100}`);
-          return true;
-        } else {
-          console.log(`❌ Not eligible. Cart total: ${total / 100}`);
-          return false;
-        }
-      } catch (err) {
-        console.error('Error checking eligibility:', err);
-        return false;
-      }
-    };
-    const updateDrawer = async () => {
-      const res = await fetch(`${window.routes.cart_url}?sections=cart-drawer,cart-icon-bubble`);
-      if (!res.ok) return;
-
-      const data = await res.json();
-      const cartDrawer = document.querySelector('cart-drawer');
-      if (cartDrawer) {
-        cartDrawer.renderContents({
-          sections: {
-            "cart-drawer": data["cart-drawer"],
-            "cart-icon-bubble": data["cart-icon-bubble"],
-          }
-        });
-      }
-    };
-
-
-    // 🆕 Manager function: add/remove free gift
-    const manageFreeGift = async () => {
-      try {
-        const cart = await getCart();
-        const eligible = cart.total_price >= FREE_GIFT_THRESHOLD;
-
-        // check if gift is already in cart
-        const giftItem = cart.items.find(item => item.variant_id == FREE_GIFT_ID);
-
-        if (eligible && !giftItem) {
-          console.log('Adding free gift 🎁');
-          await addGift(FREE_GIFT_ID, 1);
-        } else if (!eligible && giftItem) {
-          console.log('Removing free gift ❌');
-          await removeGift(giftItem.key);
-        } else {
-          console.log('No action needed.');
-        }
-      } catch (err) {
-        console.error('Error managing free gift:', err);
-      }
-    };
-
-    // Example: run manager on page load
+  // ✅ Listen for cart updates (works with drawer and AJAX updates)
+  document.addEventListener('cart:updated', () => {
     manageFreeGift();
-
-
-    
-
   });
+
+  // ✅ Optional: override Dawn pub/sub if using cart-items component
+  if (window.PUB_SUB_EVENTS && window.subscribe) {
+    subscribe(PUB_SUB_EVENTS.cartUpdate, (event) => {
+      if (!event.detail || event.detail.source !== 'free-gift') {
+        manageFreeGift();
+      }
+    });
+  }
+});
 </script>

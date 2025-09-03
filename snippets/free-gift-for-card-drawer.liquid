@@ -99,5 +99,15 @@
     document.addEventListener('cart:updated', () => {
       manageFreeGift();
     });
+
+        // Subscribe to cart update event
+    document.addEventListener(PUB_SUB_EVENTS.cartUpdate, () => {
+      console.log('🛒 Cart updated → checking free gift eligibility...');
+      manageFreeGift();
+    });
+
+
+
+
   });
 </script>

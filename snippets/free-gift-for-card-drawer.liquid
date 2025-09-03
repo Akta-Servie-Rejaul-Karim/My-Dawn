@@ -96,7 +96,7 @@
     manageFreeGift();
 
     document.addEventListener(PUB_SUB_EVENTS.cartUpdate, (event) => {
-      // Only act if the update did NOT originate from manageFreeGift itself
+      console.log(event)
       if (event.detail.source !== 'free-gift') {
         manageFreeGift(); // will add or remove gift as needed
       }

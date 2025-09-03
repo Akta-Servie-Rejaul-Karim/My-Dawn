@@ -53,12 +53,20 @@ const removeGift = async (lineItemKey) => {
 
         
 
+const getCartTotal = async () => {
+  try {
+    const res = await fetch('/cart.js');
+    if (!res.ok) throw new Error(`Error: ${res.status}`);
 
-        await fetch('/cart/change.js', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ line: freeGiftItem.key, quantity: 0 })
-        });
+    const cart = await res.json();
+    const total = cart.total_price / 100; // convert from cents
+
+    console.log('Cart total:', total);
+    return total;
+  } catch (err) {
+    console.error('Error fetching cart total:', err);
+  }
+};
 
 
 

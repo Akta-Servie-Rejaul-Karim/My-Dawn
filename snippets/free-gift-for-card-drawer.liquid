@@ -52,19 +52,28 @@
     };
 
         
+    const getCart = async () => {
+      const res = await fetch('/cart.js');
+      if (!res.ok) throw new Error(`Error: ${res.status}`);
+      return await res.json();
+    };
 
-    const getCartTotal = async () => {
+    // Function: check if cart is eligible for free gift
+    const isEligibleForGift = async () => {
       try {
-        const res = await fetch('/cart.js');
-        if (!res.ok) throw new Error(`Error: ${res.status}`);
+        const cart = await getCart();
+        const total = cart.total_price; // already in cents
 
-        const cart = await res.json();
-        const total = cart.total_price / 100; 
-
-        console.log('Cart total:', total);
-        return total;
+        if (total >= FREE_GIFT_THRESHOLD) {
+          console.log(`✅ Eligible for free gift! Cart total: ${total / 100}`);
+          return true;
+        } else {
+          console.log(`❌ Not eligible. Cart total: ${total / 100}`);
+          return false;
+        }
       } catch (err) {
-        console.error('Error fetching cart total:', err);
+        console.error('Error checking eligibility:', err);
+        return false;
       }
     };
 

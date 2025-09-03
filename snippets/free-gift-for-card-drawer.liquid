@@ -96,7 +96,7 @@
     manageFreeGift();
 
 
-if (typeof PUB_SUB_EVENTS !== 'undefined') {
+    if (typeof PUB_SUB_EVENTS !== 'undefined') {
       document.addEventListener(PUB_SUB_EVENTS.cartUpdate, (event) => {
         if (!event.detail || event.detail.source !== 'free-gift') {
           manageFreeGift();

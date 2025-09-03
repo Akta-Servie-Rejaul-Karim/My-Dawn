@@ -1,74 +1,72 @@
 <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const FREE_GIFT_ID = '{{ settings.free_gift_product.selected_or_first_available_variant.id }}';
-        const FREE_GIFT_THRESHOLD = {{ settings.free_gift_threshold }} * 100;
+  document.addEventListener('DOMContentLoaded', () => {
+    const FREE_GIFT_ID = '{{ settings.free_gift_product.selected_or_first_available_variant.id }}';
+    const FREE_GIFT_THRESHOLD = {{ settings.free_gift_threshold }} * 100;
 
 
-const addGift = async (giftVariantId, quantity = 1) => {
-  try {
-    const res = await fetch('/cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        id: giftVariantId,
-        quantity: quantity,
-        properties: { FREE_GIFT: true }
-      })
-    });
+    const addGift = async (giftVariantId, quantity = 1) => {
+      try {
+        const res = await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            id: giftVariantId,
+            quantity: quantity,
+            properties: { FREE_GIFT: true }
+          })
+        });
 
-    if (!res.ok) {
-      throw new Error(`Error: ${res.status}`);
-    }
+        if (!res.ok) {
+          throw new Error(`Error: ${res.status}`);
+        }
 
-    const data = await res.json();
-    console.log('Gift added:', data);
-    return data;
-  } catch (err) {
-    console.error('Error adding gift:', err);
-  }
-};
+        const data = await res.json();
+        console.log('Gift added:', data);
+        return data;
+      } catch (err) {
+        console.error('Error adding gift:', err);
+      }
+    };
 
-const removeGift = async (lineItemKey) => {
-  try {
-    const res = await fetch('/cart/change.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        id: lineItemKey,
-        quantity: 0
-      })
-    });
+    const removeGift = async (lineItemKey) => {
+      try {
+        const res = await fetch('/cart/change.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            id: lineItemKey,
+            quantity: 0
+          })
+        });
 
-    if (!res.ok) throw new Error(`Error: ${res.status}`);
+        if (!res.ok) throw new Error(`Error: ${res.status}`);
 
-    const data = await res.json();
-    console.log('Gift removed:', data);
-    return data;
-  } catch (err) {
-    console.error('Error removing gift:', err);
-  }
-};
+        const data = await res.json();
+        console.log('Gift removed:', data);
+        return data;
+      } catch (err) {
+        console.error('Error removing gift:', err);
+      }
+    };
 
         
 
-const getCartTotal = async () => {
-  try {
-    const res = await fetch('/cart.js');
-    if (!res.ok) throw new Error(`Error: ${res.status}`);
+    const getCartTotal = async () => {
+      try {
+        const res = await fetch('/cart.js');
+        if (!res.ok) throw new Error(`Error: ${res.status}`);
 
-    const cart = await res.json();
-    const total = cart.total_price / 100; // convert from cents
+        const cart = await res.json();
+        const total = cart.total_price / 100; 
 
-    console.log('Cart total:', total);
-    return total;
-  } catch (err) {
-    console.error('Error fetching cart total:', err);
-  }
-};
+        console.log('Cart total:', total);
+        return total;
+      } catch (err) {
+        console.error('Error fetching cart total:', err);
+      }
+    };
 
-
-
-      });
+  });
 </script>

@@ -68,6 +68,22 @@
         return false;
       }
     };
+    const updateDrawer = async () => {
+      const res = await fetch(`${window.routes.cart_url}?sections=cart-drawer,cart-icon-bubble`);
+      if (!res.ok) return;
+
+      const data = await res.json();
+      const cartDrawer = document.querySelector('cart-drawer');
+      if (cartDrawer) {
+        cartDrawer.renderContents({
+          sections: {
+            "cart-drawer": data["cart-drawer"],
+            "cart-icon-bubble": data["cart-icon-bubble"],
+          }
+        });
+      }
+    };
+
 
     // 🆕 Manager function: add/remove free gift
     const manageFreeGift = async () => {

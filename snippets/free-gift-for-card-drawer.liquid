@@ -1,34 +1,50 @@
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const FREE_GIFT_ID = '{{ settings.free_gift_product.selected_or_first_available_variant.id }}';
-      const FREE_GIFT_THRESHOLD = {{ settings.free_gift_threshold }} * 100;
+      document.addEventListener('DOMContentLoaded', () => {
+        const FREE_GIFT_ID = '{{ settings.free_gift_product.selected_or_first_available_variant.id }}';
+        const FREE_GIFT_THRESHOLD = {{ settings.free_gift_threshold }} * 100;
 
 
-  const  addGift = async ()=>{
-
-
-
-  }
-
-      await fetch('/cart/add.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          id: FREE_GIFT_ID,
-          quantity: 1,
-          properties: { FREE_GIFT: true }
-        })
-      });
-
-
-
-      await fetch('/cart/change.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ line: freeGiftItem.key, quantity: 0 })
-      });
-
-
-
+  const addGift = (giftVariantId, quantity = 1) => {
+    return fetch('/cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: giftVariantId,  // variant ID of the gift product
+        quantity: quantity
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log('Gift added:', data);
+      return data;
+    })
+    .catch(err => {
+      console.error('Error adding gift:', err);
     });
+  };
+
+
+        await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            id: FREE_GIFT_ID,
+            quantity: 1,
+            properties: { FREE_GIFT: true }
+          })
+        });
+
+
+
+        await fetch('/cart/change.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ line: freeGiftItem.key, quantity: 0 })
+        });
+
+
+
+      });
 </script>

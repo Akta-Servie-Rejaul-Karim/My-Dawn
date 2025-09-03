@@ -95,15 +95,11 @@
     // Example: run manager on page load
     manageFreeGift();
 
-    // Optional: run manager after AJAX cart updates (if you have cart events)
-    document.addEventListener('cart:updated', () => {
-      manageFreeGift();
-    });
-
-        // Subscribe to cart update event
-    document.addEventListener(PUB_SUB_EVENTS.cartUpdate, () => {
-      console.log('🛒 Cart updated → checking free gift eligibility...');
-      manageFreeGift();
+    document.addEventListener(PUB_SUB_EVENTS.cartUpdate, (event) => {
+      // Only act if the update did NOT originate from manageFreeGift itself
+      if (event.detail.source !== 'free-gift') {
+        manageFreeGift(); // will add or remove gift as needed
+      }
     });
 
 
